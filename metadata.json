@@ -1,0 +1,7 @@
+{
+  "name": "TrichoDigital - Hair Management System",
+  "description": "Una piattaforma digitale completa per centri tricologici per gestire clienti, servizi e analisi del cuoio capelluto assistita dall'AI, eliminando completamente il cartaceo.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
