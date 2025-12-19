@@ -37,7 +37,7 @@ const DigitalMenu: React.FC = () => {
     return (
       <div className="h-full flex flex-col animate-in fade-in duration-700">
         <header className="mb-10 text-center">
-          <h1 className="text-4xl font-black text-black tracking-tight mb-2 uppercase">Beautrì</h1>
+          <h1 className="text-4xl font-black text-black tracking-tight mb-2 uppercase">BEAUTRÍ</h1>
           <p className="text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">Percorsi di salute per i tuoi capelli</p>
         </header>
 
@@ -46,11 +46,11 @@ const DigitalMenu: React.FC = () => {
             onClick={() => setSelectedGender('donna')}
             className="bg-black rounded-[3rem] p-12 text-left relative overflow-hidden group shadow-2xl transition-all hover:scale-[1.02] active:scale-95"
           >
-            <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-[#FDB90B] rounded-full blur-[90px] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+            <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-[#EAB308] rounded-full blur-[90px] opacity-40 group-hover:opacity-60 transition-opacity"></div>
             <div className="relative z-10 flex flex-col h-full">
-              <span className="text-white/40 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-[#FDB90B] decoration-2 underline-offset-8">Collezione 2024</span>
+              <span className="text-white/40 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-[#EAB308] decoration-2 underline-offset-8">Collezione 2024</span>
               <h2 className="text-6xl font-black text-white tracking-tighter mt-auto">DONNA</h2>
-              <div className="w-12 h-1 bg-[#FDB90B] mt-6"></div>
+              <div className="w-12 h-1 bg-[#EAB308] mt-6"></div>
             </div>
           </button>
 
@@ -78,7 +78,7 @@ const DigitalMenu: React.FC = () => {
             <i className="fa-solid fa-arrow-left"></i>
           </button>
           <div className="text-center uppercase font-black text-black tracking-widest text-[11px] bg-white px-8 py-3 rounded-full shadow-sm border border-white/50">
-            Percorso <span className="text-[#FDB90B] ml-2">{selectedGender}</span>
+            Percorso <span className="text-[#EAB308] ml-2">{selectedGender}</span>
           </div>
           <div className="w-14"></div>
         </header>
@@ -88,14 +88,14 @@ const DigitalMenu: React.FC = () => {
             <button 
               key={section.id}
               onClick={() => setActiveSection(section.id)}
-              className="bg-white p-8 rounded-[3rem] shadow-sm border border-transparent hover:border-[#FDB90B]/30 transition-all group text-center flex flex-col items-center justify-center min-h-[220px]"
+              className="bg-white p-8 rounded-[3rem] shadow-sm border border-transparent hover:border-[#EAB308]/30 transition-all group text-center flex flex-col items-center justify-center min-h-[220px]"
             >
-              <div className="w-14 h-14 bg-slate-50 text-[#FDB90B] rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:bg-black group-hover:scale-110 transition-all">
+              <div className="w-14 h-14 bg-slate-50 text-[#EAB308] rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:bg-black group-hover:scale-110 transition-all">
                 <i className={`fa-solid ${section.icon}`}></i>
               </div>
               <h3 className="text-[11px] font-black text-black tracking-[0.1em] uppercase leading-tight">{section.label}</h3>
               {section.id === 'colorazioni' && (
-                <span className="mt-3 px-3 py-1 bg-[#FDB90B]/10 text-[#FDB90B] text-[8px] font-black rounded-full">COLOR PASS</span>
+                <span className="mt-3 px-3 py-1 bg-[#EAB308]/10 text-[#EAB308] text-[8px] font-black rounded-full">COLOR PASS</span>
               )}
             </button>
           ))}
@@ -118,7 +118,7 @@ const DigitalMenu: React.FC = () => {
 
       <div className="bg-white rounded-[4rem] p-20 flex flex-col items-center justify-center text-center shadow-sm border border-white/50">
         <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-8">
-           <i className="fa-solid fa-ellipsis text-[#FDB90B] text-2xl"></i>
+           <i className="fa-solid fa-ellipsis text-[#EAB308] text-2xl"></i>
         </div>
         <h3 className="text-3xl font-black text-black uppercase tracking-tight mb-4 italic">In fase di creazione</h3>
         <p className="text-slate-400 max-w-xs text-sm font-medium leading-relaxed uppercase tracking-widest text-[10px]">
