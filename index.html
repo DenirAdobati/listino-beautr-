@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>BEAUTRÍ PARRUCCHIERI - Listino Digitale</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS per lo styling rapido ed efficace -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
+    <!-- FontAwesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -16,6 +16,7 @@
         background-color: #F3F0EA;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
@@ -31,13 +32,18 @@
       .animate-zoom-in { animation: zoomIn 0.5s ease-out; }
       @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+      
+      /* Glassmorphism effects */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@19",
-    "react-dom/client": "https://esm.sh/react-dom@19/client",
-    "htm": "https://esm.sh/htm",
+    "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
@@ -47,15 +53,15 @@
 <body>
     <div id="root"></div>
 
+    <!-- Importazione librerie React e HTM (Hypertext Markup) tramite ESM -->
     <script type="module">
-      import React from 'react';
-      import { createRoot } from 'react-dom/client';
-      import htm from 'htm';
+      import React, { useState, useEffect, useMemo } from 'https://esm.sh/react@19';
+      import { createRoot } from 'https://esm.sh/react-dom@19/client';
+      import htm from 'https://esm.sh/htm';
 
-      const { useState, useEffect, useMemo } = React;
       const html = htm.bind(React.createElement);
 
-      // --- COSTANTI E DATI ---
+      // --- CONFIGURAZIONI E DATI ---
       const Tab = { Home: 'home', Notes: 'notes' };
       
       const SECTIONS = [
@@ -71,16 +77,16 @@
       ];
 
       const BEST_PROPOSALS_DONNA = [
-        { id: 'bp1', name: 'TRANSFORMER', price: '17/27€', description: 'Trasformiamo il tuo colore in una vera e propria ricostruzione dello stelo. Un concentrato naturale di aminoacidi che mentre colorano, lucidano e ravvivano i riflessi, proteggono e riparano.', icon: 'fa-arrows-rotate' },
-        { id: 'bp2', name: 'BIONDO PROTETTO', price: '19/27€', description: 'Trasformiamo la schiaritura in un trattamento ristrutturante. Prepariamo la struttura con i "mattoni" essenziali potenziati dall’ossigenoterapia.', icon: 'fa-shield-halved' },
-        { id: 'bp3', name: 'CUTE NO STRESS', price: '21/29€', description: 'Ridare sollievo a cuoi capelluti rigidi o stressati. Toglie infiammazioni, distende la cute e cala la tensione.', icon: 'fa-brain' },
-        { id: 'bp4', name: 'PIU’ VITA AL TUO RIFLESSO', price: '17/23€', description: 'Infiniti riflessi con pigmenti naturali organici. Azione dell’ossigenoterapia per idratare con collagene marino.', icon: 'fa-sparkles' },
-        { id: 'bp5', name: 'NEUTRALIZZANTE', price: '17/27€', description: 'Eroghiamo ossigeno puro e Mix di oli essenziali. Riportiamo il pH in equilibrio eliminando residui di colore.', icon: 'fa-wind' },
-        { id: 'bp6', name: 'OSSIGENOTERAPIA IDROMINERALE', price: '17/27€', description: 'Per capelli deboli e senza tono. Restituiamo forza, vigore ed elasticità alla struttura.', icon: 'fa-droplet' }
+        { id: 'bp1', name: 'TRANSFORMER', price: '17/27€', description: 'Trasformiamo il tuo colore in una vera e propria ricostruzione dello stelo. Aminoacidi naturali che colorano e riparano.', icon: 'fa-arrows-rotate' },
+        { id: 'bp2', name: 'BIONDO PROTETTO', price: '19/27€', description: 'La schiaritura diventa trattamento ristrutturante. "Mattoni" essenziali potenziati dall’ossigenoterapia.', icon: 'fa-shield-halved' },
+        { id: 'bp3', name: 'CUTE NO STRESS', price: '21/29€', description: 'Sollievo per cuoi capelluti rigidi o stressati. Toglie infiammazioni e distende la cute.', icon: 'fa-brain' },
+        { id: 'bp4', name: 'PIU’ VITA AL TUO RIFLESSO', price: '17/23€', description: 'Riflessi con pigmenti organici. Ossigenoterapia per idratare con collagene marino.', icon: 'fa-sparkles' },
+        { id: 'bp5', name: 'NEUTRALIZZANTE', price: '17/27€', description: 'Ossigeno puro e Mix di oli essenziali (Timo, Arancio Amaro). Elimina pruriti post-colore.', icon: 'fa-wind' },
+        { id: 'bp6', name: 'OSSIGENOTERAPIA IDROMINERALE', price: '17/27€', description: 'Forza e vigore per capelli deboli. Evita rotture dello stelo e migliora la durata del colore.', icon: 'fa-droplet' }
       ];
 
       const BEST_PROPOSALS_UOMO = [
-        { id: 'bp_u1', name: 'CUTE NO STRESS', price: '21/29€', description: 'Tensioni giornaliere e stress apportano rigidità al cuoio capelluto. Soluzione mirata per togliere tensioni e ridare sollievo.', icon: 'fa-brain' }
+        { id: 'bp_u1', name: 'CUTE NO STRESS', price: '21/29€', description: 'Toglie infiammazioni e distende la cute, cala la tensione sul cuoio capelluto. Perfetto per cuti con iperidrosi.', icon: 'fa-brain' }
       ];
 
       const LASER_TABLE_DATA = [
@@ -89,26 +95,21 @@
         { name: 'PSORIASI', sessions: '4', duration: "40'", prices: { uomo: '80', donna: '100', donnaPlus: '110' } },
         { name: 'FORFORA', sessions: '4', duration: "40'", prices: { uomo: '80', donna: '100', donnaPlus: '110' } },
         { name: 'DERMATITE SEBORROICA', sessions: '6', duration: "60'", prices: { uomo: '120', donna: '140', donnaPlus: '150' } },
-        { name: 'ECZEMA/ERITEMA', sessions: '4', duration: "40'", prices: { uomo: '80', donna: '100', donnaPlus: '110' } },
-        { name: 'CUTE SEBORROICA', sessions: '4', duration: "40'", prices: { uomo: '80', donna: '100', donnaPlus: '110' } },
       ];
 
       const MOCK_PATHS = [
-        { id: 'p1', name: 'Igenizzare/purificare', description: 'Per capelli appesantiti, eccesso di sebo, desquamazioni e prurito.', sessions: '3-5 sedute', tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', price: 'Lui: 37€ | Lei: 59/63€' },
-        { id: 'p2', name: 'Lenire', description: 'Per cuti che hanno bisogno di essere rigenerate e riportate in equilibrio.', sessions: '3-5 sedute', tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', price: 'Lui: 67€ | Lei: 89/93€' },
-        { id: 'p3', name: 'Detossinare', description: 'Per cuti asfittiche per eliminare scorie metaboliche e apportare ossigeno.', sessions: '5-7 sedute', tools: 'Vacum terapia, Altra frequenza, Cascata', price: 'Lui: 47€ | Lei: 67/71€' },
-        { id: 'p4', name: 'Nutrire', description: 'Apportare nutrimento profondo sia ai capelli che alla cute.', sessions: '5 sedute', tools: 'Ossigenoterapia, Alta frequenza, Fototerapia', price: 'Lui: 67€ | Lei: 89/93€' },
-        { id: 'p5', name: 'Riparare', description: 'Ristrutturare capelli decheratinizzati e con doppie punte.', sessions: '4 sedute', tools: 'Laser, Fototerapia, Cuffia nebulizzata', price: 'Su preventivo' },
-        { id: 'p6', name: 'Laser', description: 'Dedicato per diradamenti, psoriasi e dermatiti.', sessions: 'Vedi tabella', tools: 'Laser a fobiostimolazione', price: 'Vedi Listino' },
+        { id: 'p1', name: 'Igenizzare/purificare', description: 'Dedicato per capelli appesantiti, eccesso di sebo, desquamazioni e prurito.', sessions: '3-5 sedute', tools: 'Nebulizzazione, Corrente galvanica', price: 'Lui: 37€ | Lei: 59/63€' },
+        { id: 'p2', name: 'Lenire', description: 'Rigenera le cuti infiammate riportandole in equilibrio.', sessions: '3-5 sedute', tools: 'Nebulizzazione, Ultrasuoni', price: 'Lui: 67€ | Lei: 89/93€' },
+        { id: 'p3', name: 'Detossinare', description: 'Elimina scorie metaboliche, apporta ossigeno e nutrimento al bulbo.', sessions: '5-7 sedute', tools: 'Vacum terapia, Alta frequenza', price: 'Lui: 47€ | Lei: 67/71€' },
+        { id: 'p4', name: 'Nutrire', description: 'Apporta nutrimento vitale sia ai capelli che alla cute.', sessions: '5 sedute', tools: 'Ossigenoterapia, Fototerapia', price: 'Lui: 67€ | Lei: 89/93€' },
       ];
 
       const MOCK_MAINTENANCE_PATHS = [
-        { id: 'm1', name: 'MANTENIMENTO 1', description: 'Post-trattamento urto per stabilizzare i risultati.', sessions: '4 incontri', tools: 'Microcamera HD', price: '65€' },
+        { id: 'm1', name: 'MANTENIMENTO 1', description: 'Stabilizza i risultati ottenuti dopo il trattamento urto.', sessions: '4 incontri', tools: 'Microcamera HD', price: '65€' },
         { id: 'm2', name: 'MANTENIMENTO 2', description: 'Prevenzione stagionale e rinforzo periodico.', sessions: '3 incontri', tools: 'Ossigeno, Maschere', price: '70€' },
-        { id: 'm3', name: 'MANTENIMENTO 3', description: 'Protezione continua del cuoio capelluto sensibile.', sessions: '2 incontri', tools: 'Vapozono, Oli lenitivi', price: '60€' },
       ];
 
-      // --- COMPONENTI ---
+      // --- COMPONENTI UI ---
 
       const Logo = () => html`
         <div className="flex flex-col items-center">
@@ -134,258 +135,333 @@
         </div>
       `;
 
-      const Sidebar = ({ activeTab, setActiveTab, onClose }) => {
-        const [memo, setMemo] = useState(() => localStorage.getItem('beautri_memo') || '');
-        useEffect(() => { localStorage.setItem('beautri_memo', memo); }, [memo]);
-
-        return html`
-          <div className="w-[320px] bg-white h-screen flex flex-col p-8 shadow-2xl relative border-r border-white/20">
-            <button onClick=${onClose} className="absolute top-8 right-8 w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:text-black transition-colors">
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-            <div className="mb-12 mt-4"><${Logo} /></div>
-            <nav className="flex flex-col gap-3 mb-12">
-              <button onClick=${() => { setActiveTab(Tab.Home); onClose(); }} className=${`w-full py-4 rounded-2xl flex items-center gap-4 px-6 transition-all ${activeTab === Tab.Home ? 'bg-black text-[#EAB308] shadow-lg' : 'text-slate-400 hover:bg-slate-50 hover:text-black'}`}>
-                <i className="fa-solid fa-house text-sm"></i>
-                <span className="font-bold text-[11px] tracking-[0.2em] uppercase">Home</span>
-              </button>
-            </nav>
-            <div className="flex-1 flex flex-col min-h-0">
-              <div className="flex items-center gap-3 mb-4 px-2">
-                <i className="fa-solid fa-pen-nib text-[#EAB308] text-xs"></i>
-                <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">NOTE</span>
-              </div>
-              <div className="flex-1 bg-[#FBFBFB] rounded-3xl p-6 border border-slate-100 flex flex-col shadow-inner overflow-hidden">
-                <textarea value=${memo} onChange=${(e) => setMemo(e.target.value)} placeholder="Scrivi qui le tue note..." className="flex-1 bg-transparent resize-none focus:outline-none text-xs font-medium leading-relaxed text-slate-600 placeholder:text-slate-300 custom-scrollbar" />
-              </div>
-            </div>
-            <div className="mt-8 pt-8 border-t border-slate-50 text-center text-[9px] font-black text-slate-300 uppercase tracking-[0.2em]">Beautrí Parrucchieri</div>
-          </div>
-        `;
-      };
-
       const FixedBackButton = ({ onClick }) => html`
-        <button onClick=${onClick} className="fixed top-8 right-8 z-40 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg text-black hover:bg-black hover:text-white transition-all active:scale-95 border border-white">
+        <button onClick=${onClick} className="fixed top-8 right-8 z-[100] w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg text-black hover:bg-black hover:text-white transition-all active:scale-95 border border-white">
           <i className="fa-solid fa-arrow-left"></i>
         </button>
       `;
 
-      const ColorazioniContent = () => html`
-        <div className="animate-zoom-in max-w-4xl mx-auto pb-12">
-          <header className="flex items-center justify-center mb-10">
-            <h2 className="text-sm font-black text-black uppercase tracking-widest bg-white px-8 py-3 rounded-full shadow-sm">COLORAZIONI</h2>
-          </header>
-          <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white">
-            <div className="bg-black p-12 text-center text-white relative">
-              <h1 className="text-5xl font-black uppercase italic text-[#EAB308]">Colorazioni</h1>
-              <p className="mt-4 text-xs font-bold tracking-widest uppercase opacity-60">Salute della cute, bellezza del capello</p>
-            </div>
-            <div className="p-10 md:p-16 space-y-12">
-              <section className="text-slate-600 font-medium leading-relaxed text-lg italic">
-                "Benvenuta nel mondo delle colorazioni di Beautrì Parrucchieri, dove ogni proposta è pensata per rispettare la salute di cute e capelli, creando bellezza. Un viaggio unico per realizzare ogni desiderio cromatico in totale comfort."
-              </section>
-              
-              <div className="space-y-8">
-                <div className="bg-black text-white p-10 rounded-[3rem] relative overflow-hidden">
-                   <div className="flex justify-between items-start mb-6">
-                      <h3 className="text-2xl font-black uppercase italic">Colore Sicuro</h3>
-                      <span className="bg-[#EAB308] text-black font-black px-4 py-1 rounded-full text-lg">97/103€</span>
-                   </div>
-                   <p className="text-sm text-slate-300 mb-6">Colorazione con probiotici senza Ammoniaca, PPD, Resorcina e Nichel. Rispetta il microbiota del cuoio capelluto garantendo protezione naturale.</p>
-                   <div className="text-[10px] font-black uppercase tracking-widest text-[#EAB308]">Ideale per: Allergici, Gravidanza, Post-Chemio</div>
-                </div>
+      // --- LOGICA PRINCIPALE ---
 
-                <div className="bg-emerald-50 p-10 rounded-[3rem] border border-emerald-100">
-                   <div className="flex justify-between items-start mb-6">
-                      <h3 className="text-2xl font-black uppercase text-emerald-900">Colorazione Vegana</h3>
-                      <span className="bg-emerald-600 text-white font-black px-4 py-1 rounded-full text-lg">89/97€</span>
-                   </div>
-                   <p className="text-sm text-emerald-800 mb-6">Il primo colore senza acqua, più concentrato, senza odori né bruciori. Contiene Aloe, Spirulina, Burro di Karitè e Collagene marino.</p>
-                </div>
-
-                <div className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200 text-center">
-                   <h3 className="text-3xl font-black uppercase italic mb-4">Colorazione Zen</h3>
-                   <div className="text-xl font-black text-[#EAB308] mb-6">107/117€</div>
-                   <p className="text-sm text-slate-600">Un rituale sensoriale ispirato all'oriente. Massaggi rilassanti e pigmenti naturali per ritrovare l'equilibrio profondo.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      const SchiaritureContent = () => html`
-        <div className="animate-zoom-in max-w-4xl mx-auto pb-12">
-          <header className="flex items-center justify-center mb-10">
-            <h2 className="text-sm font-black text-black uppercase tracking-widest bg-white px-8 py-3 rounded-full shadow-sm">SCHIARITURE</h2>
-          </header>
-          <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white">
-            <div className="bg-[#EAB308] p-12 text-center text-black relative">
-              <h1 className="text-5xl font-black uppercase italic">Schiariture</h1>
-              <p className="mt-4 text-xs font-bold tracking-widest uppercase opacity-60">Bellezza e salute in ogni riflesso</p>
-            </div>
-            <div className="p-10 md:p-16 space-y-12">
-              <section className="text-slate-600 font-medium leading-relaxed text-lg">
-                "Diciamo NO a biondi estremi che distruggono i capelli. La nostra filosofia si basa sulla riparazione e sulla protezione, utilizzando decoloranti delicati arricchiti con olio di Albicocca, Pesca e Rosa Canina."
-              </section>
-
-              <div className="grid grid-cols-1 gap-6">
-                ${[
-                  { name: 'RAGGI DI LUCE', price: '107/117€', desc: 'Biondi di tendenza nel rispetto assoluto della struttura.' },
-                  { name: 'COLORAZIONE CON PUNTI LUCE', price: '117/127€', desc: 'Uniamo il colore alla tecnica delle "graffiature" per effetti armoniosi.' },
-                  { name: 'BIONDO RAFFINATO', price: '119/124€', desc: 'Effetto uniforme e naturale, addio ricrescita marcata.' },
-                  { name: 'MOVIMENTO DI COLORE', price: '139/144€', desc: 'Dinamico dalle mille sfaccettature per illuminare il viso.' },
-                  { name: 'BIONDO RAFFINATO PLUS', price: '139/147€', desc: 'Oltre la perfezione: ingredienti antiossidanti e ristrutturanti.' },
-                ].map(s => html`
-                  <div className="bg-white p-8 rounded-[3rem] border border-slate-100 flex justify-between items-center group hover:bg-black transition-colors">
-                    <div className="max-w-[70%]">
-                      <h4 className="text-xl font-black uppercase group-hover:text-white">${s.name}</h4>
-                      <p className="text-sm text-slate-500 mt-2 group-hover:text-slate-400">${s.desc}</p>
-                    </div>
-                    <div className="bg-[#EAB308] text-black font-black px-4 py-2 rounded-full whitespace-nowrap">${s.price}</div>
-                  </div>
-                `)}
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      const DigitalMenu = () => {
+      const App = () => {
         const [gender, setGender] = useState(null);
         const [section, setSection] = useState(null);
         const [selectedPath, setSelectedPath] = useState(null);
         const [subSection, setSubSection] = useState(null);
+        const [activeTab, setActiveTab] = useState(Tab.Home);
+        const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+        const [memo, setMemo] = useState(() => localStorage.getItem('beautri_memo') || '');
 
-        if (!gender) {
-          return html`
-            <div className="h-full flex flex-col animate-fade-in pb-12">
-              <header className="mb-10 text-center">
-                <h1 className="text-4xl font-black text-black tracking-tight mb-2 uppercase">BEAUTRÍ</h1>
-                <p className="text-slate-400 font-bold uppercase tracking-[0.3em] text-[10px]">Percorsi di salute per i tuoi capelli</p>
-              </header>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full mb-8">
-                <button onClick=${() => setGender('donna')} className="bg-black rounded-[3rem] p-12 text-left relative overflow-hidden group shadow-2xl h-64 transition-all hover:scale-[1.02]">
-                  <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-[#EAB308] rounded-full blur-[90px] opacity-40"></div>
-                  <div className="relative z-10 flex flex-col h-full">
-                    <span className="text-white/40 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-[#EAB308] decoration-2 underline-offset-8">LISTINO</span>
-                    <h2 className="text-6xl font-black text-white tracking-tighter mt-auto">DONNA</h2>
+        useEffect(() => {
+          localStorage.setItem('beautri_memo', memo);
+        }, [memo]);
+
+        const resetNavigation = () => {
+          setGender(null);
+          setSection(null);
+          setSubSection(null);
+          setSelectedPath(null);
+          setIsSidebarOpen(false);
+        };
+
+        // --- SCHERMATA COLORAZIONI ---
+        const renderColorazioni = () => html`
+          <div className="animate-zoom-in max-w-4xl mx-auto pb-12">
+            <header className="flex items-center justify-center mb-10">
+              <h2 className="text-sm font-black text-black uppercase tracking-widest bg-white px-8 py-3 rounded-full shadow-sm">MONDO COLORAZIONI</h2>
+            </header>
+
+            <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white">
+              <div className="bg-black p-12 text-center relative text-white">
+                <h1 className="text-5xl font-black italic text-[#EAB308] uppercase leading-none">Colorazioni</h1>
+                <p className="mt-4 text-xs font-bold tracking-widest uppercase opacity-60">Salute della cute, bellezza del capello</p>
+              </div>
+
+              <div className="p-10 md:p-16 space-y-16">
+                <section className="text-slate-600 font-medium leading-relaxed text-lg">
+                  "Benvenuta nel mondo delle colorazioni di Beutrì Parrucchieri, dove ogni proposta è pensata per rispettare la salute di cute e capelli, creando bellezza. Un viaggio unico per realizzare ogni desiderio cromatico in totale comfort."
+                </section>
+
+                <!-- Colore Sicuro -->
+                <div className="bg-black rounded-[3rem] p-10 text-white relative overflow-hidden shadow-xl">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-2xl font-black italic uppercase">Colore Sicuro</h3>
+                    <span className="bg-[#EAB308] text-black font-black px-6 py-2 rounded-full text-lg">97/103€</span>
                   </div>
-                </button>
-                <button onClick=${() => setGender('uomo')} className="bg-white rounded-[3rem] p-12 text-left relative overflow-hidden group shadow-sm border border-white h-64 transition-all hover:scale-[1.02]">
-                  <div className="relative z-10 flex flex-col h-full">
-                    <span className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-black decoration-2 underline-offset-8">LISTINO</span>
-                    <h2 className="text-6xl font-black text-black tracking-tighter mt-auto">UOMO</h2>
-                  </div>
-                </button>
-              </div>
-              <button onClick=${() => { setGender('percorsi'); setSection(null); }} className="max-w-4xl mx-auto w-full bg-[#EAB308] rounded-[3rem] p-12 text-center shadow-xl transition-all hover:scale-[1.01]">
-                <h2 className="text-4xl font-black text-black tracking-tighter uppercase italic">I NOSTRI PERCORSI</h2>
-              </button>
-            </div>
-          `;
-        }
-
-        if (subSection === 'colorazioni-dettaglio') return html`<div className="h-full relative"><${FixedBackButton} onClick=${() => setSubSection(null)} /><${ColorazioniContent} /></div>`;
-        if (subSection === 'schiariture-dettaglio') return html`<div className="h-full relative"><${FixedBackButton} onClick=${() => setSubSection(null)} /><${SchiaritureContent} /></div>`;
-
-        if (gender === 'donna' && section === 'colorazioni' && !subSection) {
-          return html`
-            <div className="h-full relative">
-              <${FixedBackButton} onClick=${() => setSection(null)} />
-              <div className="animate-fade-in max-w-5xl mx-auto space-y-8">
-                <button onClick=${() => setSubSection('colorazioni-dettaglio')} className="w-full bg-white p-12 rounded-[3rem] shadow-sm flex items-center justify-between transition-all hover:bg-black group border border-white">
-                   <h2 className="text-4xl font-black uppercase group-hover:text-white">Colorazioni</h2>
-                   <i className="fa-solid fa-palette text-3xl text-[#EAB308]"></i>
-                </button>
-                <button onClick=${() => setSubSection('schiariture-dettaglio')} className="w-full bg-white p-12 rounded-[3rem] shadow-sm flex items-center justify-between transition-all hover:bg-black group border border-white">
-                   <h2 className="text-4xl font-black uppercase group-hover:text-white">Schiariture</h2>
-                   <i className="fa-solid fa-sun text-3xl text-[#EAB308]"></i>
-                </button>
-              </div>
-            </div>
-          `;
-        }
-
-        if (selectedPath) {
-          return html`
-            <div className="h-full relative">
-              <${FixedBackButton} onClick=${() => setSelectedPath(null)} />
-              <div className="animate-zoom-in max-w-4xl mx-auto bg-white rounded-[4rem] shadow-xl overflow-hidden p-12">
-                 <h1 className="text-5xl font-black uppercase italic mb-8 border-b pb-4">${selectedPath.name}</h1>
-                 <p className="text-xl text-slate-600 mb-10 italic">"${selectedPath.description}"</p>
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="bg-slate-50 p-8 rounded-3xl">
-                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Sedute</h4>
-                       <p className="text-2xl font-black">${selectedPath.sessions}</p>
-                    </div>
-                    <div className="bg-slate-50 p-8 rounded-3xl">
-                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">Investimento</h4>
-                       <p className="text-2xl font-black text-[#EAB308]">${selectedPath.price}</p>
-                    </div>
-                 </div>
-              </div>
-            </div>
-          `;
-        }
-
-        if (section) {
-           const label = SECTIONS.find(s => s.id === section)?.label;
-           if (section.startsWith('percorsi')) {
-              const paths = section === 'percorsi-main' ? MOCK_PATHS : MOCK_MAINTENANCE_PATHS;
-              return html`
-                <div className="h-full relative">
-                  <${FixedBackButton} onClick=${() => setSection(null)} />
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    ${paths.map(p => html`
-                      <button onClick=${() => setSelectedPath(p)} className="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col items-center justify-center min-h-[200px] hover:border-[#EAB308] border transition-all">
-                        <span className="text-2xl font-black uppercase leading-tight">${p.name}</span>
-                      </button>
-                    `)}
+                  <p className="text-[#EAB308] text-xs font-black uppercase tracking-widest mb-4">Colorazione Probiotica "All Free"</p>
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                    Senza Ammoniaca, PPD, Resorcina e Nichel. Integra elementi prebiotici che nutrono e rinforzano il microbiota del cuoio capelluto, garantendo protezione naturale.
+                  </p>
+                  <div className="bg-white/10 p-6 rounded-2xl border border-white/20">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#EAB308] mb-2">Ideale per:</p>
+                    <ul className="text-xs font-bold text-slate-200">
+                      <li>• Allergici al colore • Gravidanza</li>
+                      <li>• Post-chemioterapia • Cuti delicate o psoriasi</li>
+                    </ul>
                   </div>
                 </div>
-              `;
-           }
-        }
 
-        const filteredSections = SECTIONS.filter(s => {
-          if (s.id.startsWith('percorsi')) return false;
-          if (gender === 'uomo' && s.id === 'colorazioni') return false;
-          return true;
-        });
+                <!-- Colorazione Vegana -->
+                <div className="bg-emerald-50 rounded-[3rem] p-10 border border-emerald-100 shadow-sm">
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="text-2xl font-black text-emerald-900 uppercase">Colorazione Vegana</h3>
+                    <span className="bg-emerald-600 text-white font-black px-6 py-2 rounded-full text-lg">89/97€</span>
+                  </div>
+                  <p className="text-emerald-800 font-medium mb-6">
+                    Il primo colore senza acqua, più concentrato, senza odori né bruciori. Contiene Aloe vera, spirulina, burro di babassu e collagene marino per idratare e lenire le cuti sensibili.
+                  </p>
+                </div>
 
-        return html`
-          <div className="h-full relative">
-            <${FixedBackButton} onClick=${() => setGender(null)} />
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              ${filteredSections.map(s => html`
-                <button onClick=${() => setSection(s.id)} className="bg-white p-8 rounded-[3rem] shadow-sm text-center flex flex-col items-center justify-center min-h-[220px] transition-all hover:scale-105 active:scale-95">
-                  <i className=${`fa-solid ${s.icon} text-[#EAB308] text-3xl mb-4`}></i>
-                  <h3 className="text-[11px] font-black uppercase tracking-widest leading-tight">${s.label}</h3>
-                </button>
-              `)}
+                <!-- Colorazione Zen -->
+                <div className="bg-[#FAF9F6] rounded-[4rem] p-12 border border-slate-200 text-center shadow-inner">
+                  <h3 className="text-4xl font-black italic text-black uppercase leading-none mb-4">Colorazione Zen</h3>
+                  <div className="text-xl font-black text-[#EAB308] mb-6">107/117€</div>
+                  <p className="text-slate-600 italic mb-8">"Dove la lentezza diventa lusso e il colore si fa rituale."</p>
+                  <p className="text-sm text-slate-500 leading-relaxed max-w-xl mx-auto">
+                    Massaggi rilassanti e pigmenti naturali selezionati per migliorare la struttura, rispettare il cuoio capelluto e potenziare la brillantezza.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         `;
-      };
 
-      const App = () => {
-        const [activeTab, setActiveTab] = useState(Tab.Home);
-        const [isOpen, setIsOpen] = useState(false);
+        // --- SCHERMATA SCHIARITURE ---
+        const renderSchiariture = () => html`
+          <div className="animate-zoom-in max-w-4xl mx-auto pb-12">
+            <header className="flex items-center justify-center mb-10">
+              <h2 className="text-sm font-black text-black uppercase tracking-widest bg-white px-8 py-3 rounded-full shadow-sm">MONDO SCHIARITURE</h2>
+            </header>
+
+            <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white">
+              <div className="bg-[#EAB308] p-12 text-center text-black">
+                <h1 className="text-5xl font-black italic uppercase leading-none">Schiariture</h1>
+                <p className="mt-4 text-xs font-bold tracking-widest uppercase opacity-60">Bellezza e salute in ogni riflesso</p>
+              </div>
+
+              <div className="p-10 md:p-16 space-y-12">
+                <section className="text-slate-600 font-medium leading-relaxed text-lg border-l-4 border-[#EAB308] pl-6 py-2">
+                  "Diciamo NO a biondi estremi e trattamenti invasivi. Utilizziamo decoloranti delicati arricchiti con oli antiossidanti ristrutturanti (Nocciolo di Pesca e Rosa Canina) e Gomma di Guar."
+                </section>
+
+                <div className="space-y-6">
+                  ${[
+                    { name: 'RAGGI DI LUCE', price: '107/117€', desc: 'Tecniche di schiaritura per biondi di tendenza nel rispetto della struttura.' },
+                    { name: 'COLORAZIONE CON PUNTI LUCE', price: '117/127€', desc: 'Effetto di luce con la tecnica delle "graffiature" per tocco di particolarità.' },
+                    { name: 'BIONDO RAFFINATO', price: '119/124€', desc: 'Effetto hair touch dove l’odiata ricrescita diventa solo un ricordo.' },
+                    { name: 'MOVIMENTO DI COLORE', price: '139/144€', desc: 'Colore dinamico per creare profondità ed illuminare il viso.' },
+                    { name: 'BIONDO RAFFINATO PLUS', price: '139/147€', desc: 'Biondo perfetto con ingredienti antiossidanti e ristrutturanti.' },
+                  ].map(s => html`
+                    <div className="bg-white p-8 rounded-[3rem] border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 group hover:bg-black transition-all">
+                      <div className="flex-1">
+                        <h4 className="text-xl font-black uppercase group-hover:text-white">${s.name}</h4>
+                        <p className="text-sm text-slate-500 mt-2 group-hover:text-slate-400 leading-tight">${s.desc}</p>
+                      </div>
+                      <div className="bg-[#EAB308] text-black font-black px-6 py-2 rounded-full whitespace-nowrap shadow-md">${s.price}</div>
+                    </div>
+                  `)}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // --- SCHERMATA INIZIALE ---
+        if (!gender && activeTab === Tab.Home) {
+          return html`
+            <div className="min-h-screen p-6 md:p-12 animate-fade-in pt-24">
+              <header className="mb-16 text-center">
+                <h1 className="text-5xl font-black text-black tracking-tighter mb-2 uppercase italic leading-none">BEAUTRÍ</h1>
+                <p className="text-slate-400 font-bold uppercase tracking-[0.4em] text-[10px]">Percorsi di salute per i tuoi capelli</p>
+              </header>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full mb-8">
+                <button onClick=${() => setGender('donna')} className="bg-black rounded-[4rem] p-12 text-left relative overflow-hidden group shadow-2xl h-80 transition-all hover:scale-[1.02]">
+                  <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-[#EAB308] rounded-full blur-[90px] opacity-40"></div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    <span className="text-white/40 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-[#EAB308] decoration-2 underline-offset-8">LISTINO</span>
+                    <h2 className="text-7xl font-black text-white tracking-tighter mt-auto italic">DONNA</h2>
+                  </div>
+                </button>
+
+                <button onClick=${() => setGender('uomo')} className="bg-white rounded-[4rem] p-12 text-left relative overflow-hidden group shadow-sm border border-white h-80 transition-all hover:scale-[1.02]">
+                  <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-slate-100 rounded-full blur-[90px] opacity-60"></div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    <span className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.4em] mb-4 underline decoration-black decoration-2 underline-offset-8">LISTINO</span>
+                    <h2 className="text-7xl font-black text-black tracking-tighter mt-auto italic">UOMO</h2>
+                  </div>
+                </button>
+              </div>
+
+              <div className="max-w-4xl mx-auto w-full">
+                <button onClick=${() => setGender('percorsi')} className="w-full bg-[#EAB308] rounded-[4rem] p-16 text-center shadow-xl transition-all hover:scale-[1.01] active:scale-95 group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <h2 className="text-5xl md:text-6xl font-black text-black tracking-tighter uppercase italic leading-none">I NOSTRI PERCORSI</h2>
+                </button>
+              </div>
+            </div>
+          `;
+        }
+
+        // --- SCHERMATA NOTE ---
+        if (activeTab === Tab.Notes) {
+          return html`
+            <div className="min-h-screen p-6 md:p-12 animate-zoom-in pt-24">
+              <header className="mb-12 text-center">
+                <h1 className="text-3xl font-black uppercase tracking-widest">LE TUE NOTE</h1>
+              </header>
+              <div className="max-w-2xl mx-auto bg-white rounded-[3rem] p-10 shadow-sm h-[60vh] flex flex-col">
+                <textarea 
+                  value=${memo} 
+                  onChange=${(e) => setMemo(e.target.value)} 
+                  placeholder="Annota qui i consigli di Denir..." 
+                  className="flex-1 bg-transparent resize-none focus:outline-none text-lg font-medium text-slate-700 leading-relaxed custom-scrollbar"
+                />
+                <div className="mt-6 pt-6 border-t border-slate-50 flex justify-between items-center">
+                  <span className="text-xs font-black text-slate-300 uppercase">Salvataggio automatico attivo</span>
+                  <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                </div>
+              </div>
+              <div className="mt-12 text-center">
+                <button onClick=${() => setActiveTab(Tab.Home)} className="bg-black text-[#EAB308] px-10 py-4 rounded-full font-black uppercase tracking-widest text-xs">Torna alla Home</button>
+              </div>
+            </div>
+          `;
+        }
+
+        // --- RENDERING MENU SELEZIONATO ---
+        const renderContent = () => {
+          if (subSection === 'colorazioni-dettaglio') return renderColorazioni();
+          if (subSection === 'schiariture-dettaglio') return renderSchiariture();
+
+          // Sub-menu Colorazioni Donna
+          if (gender === 'donna' && section === 'colorazioni') {
+            return html`
+              <div className="animate-fade-in max-w-4xl mx-auto space-y-8 pb-24">
+                <header className="text-center mb-12">
+                   <h2 className="text-sm font-black uppercase tracking-widest bg-white inline-block px-10 py-3 rounded-full border">COLORE E SCHIARITURE</h2>
+                </header>
+                <button onClick=${() => setSubSection('colorazioni-dettaglio')} className="w-full glass-card p-14 rounded-[4rem] flex items-center justify-between hover:bg-black group transition-all">
+                  <h2 className="text-5xl font-black uppercase group-hover:text-white italic">Colorazioni</h2>
+                  <i className="fa-solid fa-palette text-4xl text-[#EAB308]"></i>
+                </button>
+                <button onClick=${() => setSubSection('schiariture-dettaglio')} className="w-full glass-card p-14 rounded-[4rem] flex items-center justify-between hover:bg-black group transition-all">
+                  <h2 className="text-5xl font-black uppercase group-hover:text-white italic">Schiariture</h2>
+                  <i className="fa-solid fa-sun text-4xl text-[#EAB308]"></i>
+                </button>
+              </div>
+            `;
+          }
+
+          // Percorsi
+          if (gender === 'percorsi' && !section) {
+            return html`
+              <div className="animate-fade-in max-w-4xl mx-auto space-y-8 pb-24 pt-24">
+                <button onClick=${() => setSection('percorsi-main')} className="w-full bg-black p-14 rounded-[4rem] flex items-center justify-between group transition-all">
+                  <h2 className="text-5xl font-black uppercase text-white italic">Percorsi</h2>
+                  <i className="fa-solid fa-route text-4xl text-[#EAB308]"></i>
+                </button>
+                <button onClick=${() => setSection('percorsi-mantenimento')} className="w-full bg-[#EAB308] p-14 rounded-[4rem] flex items-center justify-between group transition-all">
+                  <h2 className="text-5xl font-black uppercase text-black italic leading-none">Mantenimento</h2>
+                  <i className="fa-solid fa-shield-heart text-4xl text-black"></i>
+                </button>
+              </div>
+            `;
+          }
+
+          // Lista percorsi o Sezioni standard
+          if (section) {
+            const paths = section === 'percorsi-main' ? MOCK_PATHS : section === 'percorsi-mantenimento' ? MOCK_MAINTENANCE_PATHS : null;
+            if (paths) {
+               return html`
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto pt-24 pb-24">
+                  ${paths.map(p => html`
+                    <button onClick=${() => setSelectedPath(p)} className="bg-white p-12 rounded-[4rem] shadow-sm flex flex-col items-center justify-center min-h-[250px] hover:border-[#EAB308] border-2 border-white transition-all">
+                      <span className="text-2xl font-black uppercase italic leading-tight text-center">${p.name}</span>
+                      <div className="w-10 h-1 bg-[#EAB308] mt-6"></div>
+                    </button>
+                  `)}
+                </div>
+               `;
+            }
+          }
+
+          // Menu principale icone
+          const filteredSections = SECTIONS.filter(s => {
+            if (s.id.startsWith('percorsi')) return false;
+            if (gender === 'uomo' && s.id === 'colorazioni') return false;
+            return true;
+          });
+
+          return html`
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto pt-24 pb-24">
+              ${filteredSections.map(s => html`
+                <button onClick=${() => setSection(s.id)} className="bg-white p-10 rounded-[4rem] shadow-sm flex flex-col items-center justify-center min-h-[250px] transition-all hover:scale-105 active:scale-95 group">
+                  <div className="w-20 h-20 bg-slate-50 text-[#EAB308] rounded-3xl flex items-center justify-center text-4xl mb-6 group-hover:bg-black transition-colors">
+                    <i className=${`fa-solid ${s.icon}`}></i>
+                  </div>
+                  <h3 className="text-xs font-black uppercase tracking-widest text-center leading-tight px-4">${s.label}</h3>
+                </button>
+              `)}
+            </div>
+          `;
+        };
 
         return html`
-          <div className="flex h-screen overflow-hidden relative">
-            <button onClick=${() => setIsOpen(true)} className="fixed top-8 left-8 z-40 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-black active:scale-95 border border-white">
+          <div className="flex flex-col min-h-screen relative">
+            <!-- Sidebar / Mobile Menu Toggle -->
+            <button onClick=${() => setIsSidebarOpen(true)} className="fixed top-8 left-8 z-[100] w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center border border-white active:scale-90 transition-transform">
               <i className="fa-solid fa-bars-staggered text-xl"></i>
             </button>
-            ${isOpen && html`<div className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40" onClick=${() => setIsOpen(false)} />`}
-            <div className=${`fixed top-0 left-0 h-full z-50 transition-transform duration-500 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-              <${Sidebar} activeTab=${activeTab} setActiveTab=${setActiveTab} onClose=${() => setIsOpen(false)} />
+
+            <!-- Sidebar -->
+            ${isSidebarOpen && html`<div className="fixed inset-0 bg-black/40 backdrop-blur-md z-[110]" onClick=${() => setIsSidebarOpen(false)} />`}
+            <div className=${`fixed top-0 left-0 h-full w-[320px] bg-white z-[120] transition-transform duration-500 shadow-2xl p-10 flex flex-col ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+               <button onClick=${() => setIsSidebarOpen(false)} className="absolute top-8 right-8 text-slate-300 hover:text-black transition-colors"><i className="fa-solid fa-xmark text-2xl"></i></button>
+               <div className="mt-10 mb-16"><${Logo} /></div>
+               <nav className="space-y-4">
+                 <button onClick=${() => { resetNavigation(); setActiveTab(Tab.Home); }} className="w-full p-6 bg-slate-50 rounded-3xl flex items-center gap-4 text-xs font-black uppercase tracking-widest hover:bg-black hover:text-[#EAB308] transition-all">
+                   <i className="fa-solid fa-house"></i> Home
+                 </button>
+                 <button onClick=${() => { setIsSidebarOpen(false); setActiveTab(Tab.Notes); }} className="w-full p-6 bg-slate-50 rounded-3xl flex items-center gap-4 text-xs font-black uppercase tracking-widest hover:bg-black hover:text-[#EAB308] transition-all">
+                   <i className="fa-solid fa-note-sticky"></i> Note Clienti
+                 </button>
+               </nav>
+               <div className="mt-auto text-center opacity-20 text-[10px] font-black uppercase tracking-widest">BEAUTRÍ © 2024</div>
             </div>
-            <main className="flex-1 overflow-y-auto custom-scrollbar p-6">
-              <div className="max-w-[1200px] mx-auto h-full pt-20">
-                <${DigitalMenu} />
-              </div>
+
+            <main className="flex-1 px-6">
+              ${(gender || section) && html`<${FixedBackButton} onClick=${() => {
+                if (selectedPath) setSelectedPath(null);
+                else if (subSection) setSubSection(null);
+                else if (section) setSection(null);
+                else setGender(null);
+              }} />`}
+
+              <!-- Visualizzazione Percorso Dettagliato -->
+              ${selectedPath ? html`
+                <div className="animate-zoom-in max-w-4xl mx-auto pt-24 pb-24">
+                   <div className="bg-white rounded-[5rem] shadow-2xl overflow-hidden border border-white">
+                      <div className="bg-black p-16 text-center text-white relative">
+                        <h1 className="text-6xl font-black italic uppercase leading-none text-[#EAB308]">${selectedPath.name}</h1>
+                        <div className="w-20 h-1 bg-[#EAB308] mx-auto mt-8"></div>
+                      </div>
+                      <div className="p-16 space-y-12">
+                        <p className="text-3xl text-slate-600 italic font-medium leading-tight">"${selectedPath.description}"</p>
+                        <div className="grid grid-cols-2 gap-10 border-t pt-12">
+                          <div className="bg-slate-50 p-10 rounded-[3rem]">
+                            <h4 className="text-[10px] font-black uppercase text-slate-400 mb-2">Numero di Sedute</h4>
+                            <p className="text-3xl font-black">${selectedPath.sessions}</p>
+                          </div>
+                          <div className="bg-[#EAB308] p-10 rounded-[3rem]">
+                            <h4 className="text-[10px] font-black uppercase text-black/50 mb-2">Investimento</h4>
+                            <p className="text-3xl font-black text-black">${selectedPath.price}</p>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+              ` : renderContent()}
             </main>
           </div>
         `;
