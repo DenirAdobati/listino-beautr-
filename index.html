@@ -32,10 +32,6 @@
       .animate-zoom-in { animation: zoomIn 0.5s ease-out; }
       @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       @keyframes zoomIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-      
-      .content-height {
-        height: calc(100vh - 80px);
-      }
     </style>
 <script type="importmap">
 {
@@ -57,7 +53,7 @@
       import { createRoot } from 'react-dom/client';
       import htm from 'htm';
 
-      const { useState, useEffect, useMemo } = React;
+      const { useState, useEffect } = React;
       const html = htm.bind(React.createElement);
 
       // --- DATI ---
@@ -166,6 +162,145 @@
           </div>
         `;
       };
+
+      const ColorazioniList = () => html`
+        <div className="h-full relative animate-zoom-in max-w-5xl mx-auto pb-12 overflow-y-auto custom-scrollbar">
+          <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white mb-10">
+            <div className="bg-black p-12 text-center text-white relative uppercase">
+              <h1 className="text-4xl font-black tracking-tighter">Colorazioni</h1>
+              <div className="w-12 h-1 bg-[#EAB308] mx-auto mt-6"></div>
+            </div>
+            <div className="p-10 md:p-16 text-center normal-case">
+              <p className="text-slate-600 text-lg leading-relaxed font-medium italic max-w-3xl mx-auto">
+                Benvenuta nel mondo delle colorazioni di Beutrì Parrucchieri,
+                dove ogni proposta è pensata per rispettare la salute di cute e
+                capelli, creando bellezza. Un viaggio unico per realizzare ogni
+                desiderio cromatico in totale comfort. Grazie a prodotti certificati
+                e formulazioni all’avanguardia, offriamo risultati sorprendenti:
+                copertura impeccabile, riflessi intensi e capelli più sani e luminosi.
+                Inoltre, evitiamo strumenti che possano danneggiare la struttura dei
+                tuoi capelli, garantendo un’esperienza sicura e innovativa.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-12">
+            <!-- COLORE SICURO -->
+            <section className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-white">
+              <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+                <div className="flex-1">
+                  <h2 className="text-3xl font-black text-black tracking-tighter uppercase mb-2">COLORE SICURO</h2>
+                  <div className="text-2xl font-black text-[#EAB308] tracking-widest">97€ / 103€</div>
+                  <p className="text-slate-500 font-bold uppercase text-xs mt-2">Colorazione con probiotici senza: AMMONIACA, PPD, RESORCINA E NICHEL</p>
+                  <p className="text-slate-400 text-[10px] font-bold italic normal-case">i più potenti allergeni che una colorazione può contenere</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 normal-case">
+                <div className="space-y-6">
+                  <div className="bg-slate-50 p-6 rounded-[2rem] border border-slate-100">
+                    <h4 className="text-black font-black uppercase text-xs mb-4 underline decoration-[#EAB308] decoration-2 underline-offset-4">Cos’è il microbioma del cuoio capelluto?</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                      È l’insieme di microrganismi (microbiota) che vivono sul cuoio
+                      capelluto e svolgono una funzione difensiva. Questo equilibrio può
+                      essere alterato da fattori come la colorazione.
+                    </p>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      Quando i microrganismi “amici” (prebiotici) diminuiscono, i batteri
+                      nocivi proliferano, causando squilibri. Per questo è fondamentale
+                      integrare elementi prebiotici che nutrano e rinforzino il microbiota,
+                      garantendo protezione naturale per cute e capelli.
+                      I microrganismi convivono in perfetta simbiosi, adattandosi a pH,
+                      umidità e temperatura della nostra cute, preservandone salute e bellezza.
+                    </p>
+                  </div>
+                </div>
+                <div className="bg-black text-white p-8 rounded-[3rem] uppercase flex flex-col justify-center">
+                  <h4 className="text-[#EAB308] text-xs font-black tracking-widest mb-4">Addio colorazioni aggressive, benvenuta colorazione probiotica “All Free”</h4>
+                  <p className="text-slate-300 text-xs leading-relaxed mb-6 normal-case">Una colorazione innovativa che rispetta sia la natura che il capello, grazie a preziosi attivi probiotici che trattano delicatamente cute e capelli.</p>
+                  <div className="space-y-2">
+                    <div className="text-[11px] font-black text-[#EAB308] mb-2">Adatta a:</div>
+                    ${['• • Allergici al colore', '• • Gravidanza', '• • Post-chemioterapia', '• • Cuti delicate o con dermatiti e psoriasi'].map(item => html`
+                      <div className="text-[11px] font-bold text-slate-200">${item}</div>
+                    `)}
+                  </div>
+                  <div className="mt-8 pt-4 border-t border-white/10 text-[10px] font-black tracking-widest text-slate-400 italic normal-case">Risultati: Massimo rispetto della cute, senza prurito o fastidi.</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- COLORAZIONE VEGANA -->
+            <section className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-white">
+              <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+                <div className="flex-1">
+                  <h2 className="text-3xl font-black text-black tracking-tighter uppercase mb-2">COLORAZIONE VEGANA</h2>
+                  <div className="text-2xl font-black text-[#EAB308] tracking-widest">da 89€ a 97€</div>
+                </div>
+              </div>
+              <div className="space-y-8 normal-case text-slate-600">
+                <p className="text-lg leading-relaxed max-w-4xl">
+                  Grazie agli attivi di origine naturale e alla sostituzione dell’acqua
+                  con sostanze idratanti, questo colore ha rivoluzionato l’esperienza
+                  della colorazione. È il primo colore senza acqua, più concentrato,
+                  senza odori né bruciori, e con effetti benefici sui capelli.
+                </p>
+                <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100">
+                  <p className="font-black text-black uppercase text-xs mb-3">Ingredienti chiave:</p>
+                  <p className="text-sm leading-relaxed">
+                    Aloe vera, spirulina, olio d’oliva, olio di limnanthes alba,
+                    burro di babassu, burro di karitè, aminoacidi vegetali, olio di vetiver
+                    e collagene marino: un mix di oli naturali per idratare e lenire anche
+                    le cuti più sensibili.
+                  </p>
+                </div>
+                <div className="bg-black p-8 rounded-[3rem] text-white text-center uppercase tracking-tighter">
+                  <p className="text-[11px] font-black tracking-[0.2em]">Privo di ammoniaca, fragranze e nichel, con ingredienti vegani, offre 72 nuance intermiscelabili, perfette per ogni esigenza.</p>
+                  <p className="text-[#EAB308] text-xs font-black mt-4 italic tracking-widest">Un ‘esperienza tutta da vivere.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- COLORAZIONE ZEN -->
+            <section className="bg-black text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden">
+               <div className="relative z-10">
+                 <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
+                   <div className="flex-1">
+                     <h2 className="text-4xl font-black tracking-tighter uppercase mb-2">Colorazione Zen</h2>
+                     <div className="text-2xl font-black text-[#EAB308] tracking-widest">da 107€ a 117€</div>
+                     <p className="text-[#EAB308] text-sm font-black italic mt-4 normal-case">Dove la lentezza diventa lusso e il colore si fa rituale.</p>
+                   </div>
+                 </div>
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                   <div className="normal-case text-slate-300">
+                     <p className="text-sm leading-relaxed mb-8">
+                        Un trattamento ispirato ai rituali orientali, in cui la colorazione
+                        non è solo tecnica ma esperienza sensoriale.
+                        Massaggi rilassanti, manovre orientali e pigmenti naturali
+                        si uniscono per donare benessere profondo e armonia.
+                     </p>
+                     <p className="text-[#EAB308] font-black uppercase text-xs mb-4 tracking-widest">Pigmenti naturali selezionati per:</p>
+                     <ul className="space-y-2 text-xs font-bold uppercase tracking-wider text-slate-400">
+                        <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full"></span> Migliorare la struttura del capello</li>
+                        <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full"></span> Rispettare il cuoio capelluto</li>
+                        <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full"></span> Potenziare la brillantezza</li>
+                        <li className="flex items-center gap-3"><span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full"></span> Prolungare la durata del colore</li>
+                     </ul>
+                   </div>
+                   <div className="bg-white/5 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center border border-white/10">
+                      <p className="text-[#EAB308] text-lg font-black italic leading-relaxed normal-case">
+                        "Un momento di pausa, silenzio e bellezza per ritrovare l’equilibrio,
+                        dentro e fuori."
+                      </p>
+                      <p className="text-[10px] text-white mt-8 font-black uppercase tracking-[0.4em] opacity-80 leading-relaxed">
+                        Colorazione Zen è un invito a fermarsi e riscoprire la bellezza come rituale consapevole
+                      </p>
+                   </div>
+                 </div>
+               </div>
+            </section>
+          </div>
+        </div>
+      `;
 
       const DigitalMenu = () => {
         const [gender, setGender] = useState(null);
@@ -287,12 +422,12 @@
                   <h1 className="text-4xl font-black tracking-tighter">${selectedPath.name}</h1>
                   <div className="w-16 h-1 bg-[#EAB308] mx-auto mt-6"></div>
                 </div>
-                <div className="p-10 md:p-16 space-y-12">
+                <div className="p-10 md:p-16 space-y-12 normal-case">
                   <section>
                     <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Descrizione</h3>
-                    <p className="text-slate-600 font-medium leading-relaxed text-lg italic">"${selectedPath.description}"</p>
+                    <p className="text-slate-600 font-medium leading-relaxed text-lg italic normal-case">"${selectedPath.description}"</p>
                   </section>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-slate-50 uppercase">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-slate-50 uppercase tracking-wider font-bold text-xs">
                     ${!isLaser && html`
                       <section>
                         <h3 className="text-xs font-black text-slate-400 tracking-widest mb-4">Sedute</h3>
@@ -305,7 +440,7 @@
                     </section>
                   </div>
                   ${isLaser ? html`
-                    <section className="bg-white rounded-[3rem] p-4 border border-slate-100 shadow-sm overflow-x-auto">
+                    <section className="bg-white rounded-[3rem] p-4 border border-slate-100 shadow-sm overflow-x-auto uppercase">
                       <div className="space-y-6 min-w-[600px] px-2">
                         ${LASER_TABLE_DATA.map((row, idx) => html`
                           <div key=${idx} className="flex items-center justify-between border-b border-slate-50 pb-4 last:border-0 uppercase">
@@ -361,7 +496,7 @@
             <div className="h-full relative animate-zoom-in max-w-5xl mx-auto pb-12">
               <${FixedBackButton} />
               <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white">
-                <div className="p-12 flex flex-col justify-center">
+                <div className="p-12 flex flex-col justify-center normal-case">
                   <h1 className="text-4xl font-black text-black uppercase tracking-tighter mb-6">La nostra visione</h1>
                   <div className="w-16 h-1 bg-[#EAB308] mb-10"></div>
                   <div className="space-y-6 text-slate-700 text-lg leading-relaxed">
@@ -392,7 +527,7 @@
                   <div key=${p.id} className="bg-white rounded-[3rem] p-10 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all uppercase">
                     <div className="w-12 h-12 bg-slate-50 text-[#EAB308] rounded-xl flex items-center justify-center text-lg mb-6 shadow-inner"><i className=${`fa-solid ${p.icon}`}></i></div>
                     <h3 className="text-xl font-black text-black mb-2">${p.name}</h3>
-                    <div className="text-[#EAB308] font-black mb-6">${p.price}</div>
+                    <div className="text-[#EAB308] font-black mb-6 tracking-widest">${p.price}</div>
                     <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case">${p.description}</p>
                   </div>
                 `)}
@@ -401,7 +536,6 @@
           `;
         }
 
-        // --- SEZIONE COLORAZIONI AGGIORNATA ---
         if (section === 'colorazioni' && gender === 'donna' && !subSection) {
           return html`
             <div className="h-full relative animate-zoom-in max-w-4xl mx-auto pb-12">
@@ -416,7 +550,7 @@
                   </div>
                 </button>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <button onClick=${() => setSubSection('colorazioni-list')} className="bg-white rounded-[3rem] p-12 text-center shadow-sm border border-slate-100 transition-all hover:scale-[1.02] active:scale-95 flex flex-col items-center">
+                  <button onClick=${() => setSubSection('colorazioni-list-main')} className="bg-white rounded-[3rem] p-12 text-center shadow-sm border border-slate-100 transition-all hover:scale-[1.02] active:scale-95 flex flex-col items-center">
                     <i className="fa-solid fa-brush text-[#EAB308] text-3xl mb-4"></i>
                     <h2 className="text-3xl font-black text-black tracking-tighter">COLORAZIONI</h2>
                   </button>
@@ -426,6 +560,15 @@
                   </button>
                 </div>
               </div>
+            </div>
+          `;
+        }
+
+        if (subSection === 'colorazioni-list-main') {
+          return html`
+            <div className="h-full relative animate-fade-in">
+              <${FixedBackButton} />
+              <${ColorazioniList} />
             </div>
           `;
         }
@@ -442,19 +585,19 @@
                   <h1 className="text-4xl font-black tracking-tighter">COLOR PASS</h1>
                   <p className="text-[#EAB308] font-bold tracking-[0.2em] text-xs mt-4 italic">IL SEGRETO PER UN COLORE SEMPRE PERFETTO</p>
                 </div>
-                <div className="p-10 md:p-16 space-y-12">
+                <div className="p-10 md:p-16 space-y-12 normal-case">
                   <section className="text-center max-w-3xl mx-auto">
-                    <h3 className="text-xl font-black text-black uppercase mb-6">Uno dei nostri servizi più richiesti!</h3>
+                    <h3 className="text-xl font-black text-black uppercase mb-6 tracking-tight">Uno dei nostri servizi più richiesti!</h3>
                     <p className="text-slate-600 text-lg leading-relaxed font-medium italic">Il Color Pass torna e ti accompagna per avere un colore sempre perfetto, luminoso e senza pensieri.</p>
                   </section>
-                  <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <section className="grid grid-cols-1 md:grid-cols-3 gap-6 uppercase text-[10px] font-bold tracking-widest text-slate-500">
                     ${["Hai difficoltà a mantenere il tuo colore?", "La ricrescita ti fa sentire poco in ordine?", "Capelli che perdono brillantezza?"].map(t => html`
-                      <div className="bg-slate-50 p-8 rounded-[3rem] text-center border border-slate-100 font-bold italic text-sm">"${t}"</div>
+                      <div className="bg-slate-50 p-8 rounded-[3rem] text-center border border-slate-100">"${t}"</div>
                     `)}
                   </section>
-                  <section className="bg-black rounded-[4rem] p-12 text-white">
+                  <section className="bg-black rounded-[4rem] p-12 text-white uppercase">
                     <h4 className="text-xs font-black text-[#EAB308] uppercase tracking-widest mb-10 border-l-2 border-[#EAB308] pl-4">Con il Color Pass otterrai:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 uppercase text-[10px]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-[10px] tracking-wider">
                       ${[
                         {i:"fa-sun", t:"Luminosità", d:"Colore sempre luminoso"},
                         {i:"fa-eye-slash", t:"Ordine", d:"Nessuna ricrescita evidente"},
@@ -464,7 +607,7 @@
                       ].map(item => html`
                         <div className="flex items-start gap-4">
                           <i className=${`fa-solid ${item.i} text-[#EAB308]`}></i>
-                          <div><div className="font-black text-[#EAB308] mb-1">${item.t}</div><div className="text-slate-300">${item.d}</div></div>
+                          <div><div className="font-black text-[#EAB308] mb-1">${item.t}</div><div className="text-slate-300 normal-case">${item.d}</div></div>
                         </div>
                       `)}
                     </div>
@@ -478,10 +621,10 @@
         return html`
           <div className="h-full relative animate-zoom-in">
             <${FixedBackButton} />
-            <div className="bg-white rounded-[4rem] p-20 flex flex-col items-center justify-center text-center shadow-sm uppercase">
+            <div className="bg-white rounded-[4rem] p-20 flex flex-col items-center justify-center text-center shadow-sm uppercase tracking-widest">
               <i className="fa-solid fa-ellipsis text-[#EAB308] text-4xl mb-8"></i>
-              <h3 className="text-3xl font-black italic mb-4">Contenuto in arrivo</h3>
-              <p className="text-slate-400 text-[10px] tracking-widest uppercase">Stiamo preparando l'eccellenza Beautrí</p>
+              <h3 className="text-3xl font-black italic mb-4 tracking-tighter">Contenuto in arrivo</h3>
+              <p className="text-slate-400 text-[10px] uppercase">Stiamo preparando l'eccellenza Beautrí</p>
             </div>
           </div>
         `;
@@ -504,10 +647,10 @@
               <div className="max-w-[1200px] mx-auto h-full pt-20">
                 ${activeTab === 'home' ? html`<${DigitalMenu} />` : html`
                   <div className="h-full flex flex-col items-center justify-center animate-zoom-in">
-                    <div className="bg-white rounded-[3rem] p-12 shadow-sm w-full max-w-2xl text-center uppercase">
+                    <div className="bg-white rounded-[3rem] p-12 shadow-sm w-full max-w-2xl text-center uppercase tracking-widest">
                       <i className="fa-solid fa-note-sticky text-4xl text-[#EAB308] mb-6"></i>
-                      <h2 className="text-2xl font-black tracking-widest mb-4">NOTE</h2>
-                      <p className="text-slate-400 text-sm tracking-widest font-bold">Le tue note vengono salvate automaticamente nella barra laterale</p>
+                      <h2 className="text-2xl font-black mb-4 tracking-tighter">NOTE</h2>
+                      <p className="text-slate-400 text-sm font-bold normal-case">Le tue note vengono salvate automaticamente nella barra laterale</p>
                     </div>
                   </div>
                 `}
