@@ -64,7 +64,9 @@
         { id: 'trattamenti-tricologici', label: 'TRATTAMENTI TRICOLOGICI', icon: 'fa-microscope' },
         { id: 'spa', label: 'SPA', icon: 'fa-water' },
         { id: 'forma', label: 'FORMA', icon: 'fa-wand-magic-sparkles' },
-        { id: 'stilistico', label: 'STILISTICO', icon: 'fa-scissors' }
+        { id: 'stilistico', label: 'STILISTICO', icon: 'fa-scissors' },
+        // SEZIONE NOVITÀ AGGIUNTA PER ULTIMA
+        { id: 'novita', label: 'NOVITÀ', icon: 'fa-bell' }
       ];
 
       const BEST_PROPOSALS_DONNA = [
@@ -785,14 +787,38 @@
                 ${SECTIONS.filter(s => {
                     if (gender === 'uomo' && (s.id === 'colorazioni' || s.id === 'forma')) return false;
                     return true;
-                }).map(s => html`
-                  <button key=${s.id} onClick=${() => setSection(s.id)} className="bg-white p-8 rounded-[3rem] shadow-sm hover:border-[#EAB308]/30 transition-all group text-center flex flex-col items-center justify-center min-h-[220px]">
-                    <div className="w-14 h-14 bg-slate-50 text-[#EAB308] rounded-2xl flex items-center justify-center text-xl mb-4 group-hover:bg-black group-hover:text-[#EAB308] transition-all">
-                      <i className=${`fa-solid ${s.icon}`}></i>
-                    </div>
-                    <h3 className="text-[11px] font-black text-black tracking-[0.1em] uppercase">${s.label}</h3>
-                  </button>
-                `)}
+                }).map(s => {
+                    // Logic per differenziare la sezione NOVITÀ
+                    const isNovita = s.id === 'novita';
+                    return html`
+                      <button key=${s.id} onClick=${() => setSection(s.id)} 
+                        className=${`
+                          p-8 rounded-[3rem] shadow-sm transition-all group text-center flex flex-col items-center justify-center min-h-[220px]
+                          ${isNovita 
+                            ? 'bg-black border border-black hover:scale-[1.02]' 
+                            : 'bg-white border border-white hover:border-[#EAB308]/30'}
+                        `}
+                      >
+                        <div className=${`
+                          w-14 h-14 rounded-2xl flex items-center justify-center text-xl mb-4 transition-all
+                          ${isNovita 
+                            ? 'bg-[#EAB308] text-black' 
+                            : 'bg-slate-50 text-[#EAB308] group-hover:bg-black group-hover:text-[#EAB308]'}
+                        `}>
+                          <i className=${`fa-solid ${s.icon}`}></i>
+                        </div>
+                        <h3 className=${`
+                          text-[11px] font-black tracking-[0.1em] uppercase
+                          ${isNovita ? 'text-white' : 'text-black'}
+                        `}>
+                          ${s.label}
+                        </h3>
+                        ${isNovita && html`
+                            <span className="mt-2 text-[9px] text-[#EAB308] font-bold tracking-widest animate-pulse">NEW</span>
+                        `}
+                      </button>
+                    `;
+                })}
               </div>
             </div>
           `;
