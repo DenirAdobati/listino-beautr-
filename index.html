@@ -302,6 +302,96 @@
         </div>
       `;
 
+      const SchiaritureList = () => html`
+        <div className="h-full relative animate-zoom-in max-w-5xl mx-auto pb-12 overflow-y-auto custom-scrollbar">
+          <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white mb-10">
+            <div className="bg-black p-12 text-center text-white relative uppercase">
+              <h1 className="text-4xl font-black tracking-tighter">Schiariture</h1>
+              <div className="w-12 h-1 bg-[#EAB308] mx-auto mt-6"></div>
+            </div>
+            <div className="p-10 md:p-16 text-center normal-case">
+              <p className="text-slate-600 text-lg leading-relaxed font-medium italic max-w-3xl mx-auto">
+                Benvenuta nel mondo delle schiariture di Beautrì Parrucchieri,
+                dove bellezza e salute dei capelli vanno di pari passo.
+                Tutti abbiamo desiderato capelli più chiari almeno una volta,
+                ma a che prezzo? Decolorazioni aggressive e prodotti scadenti
+                compromettono irrimediabilmente la struttura del capello.
+                Noi diciamo NO a biondi estremi e trattamenti invasivi che
+                distruggono i capelli. La nostra filosofia si basa sulla riparazione
+                e sulla protezione, utilizzando decoloranti delicati, formulazioni
+                innovative e strumenti non aggressivi, come stagnoli e fonti di calore
+                controllate. Garantiamo schiariture che rispettano i capelli, per
+                risultati biondi, sani e lucenti.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-12">
+            <section className="bg-black text-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-black relative overflow-hidden">
+               <div className="relative z-10">
+                  <h2 className="text-3xl font-black text-[#EAB308] tracking-tighter uppercase mb-8">I nostri decoloranti</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                      <div>
+                         <p className="text-slate-300 text-sm leading-relaxed mb-6 normal-case">
+                           Protegge la fibra capillare durante l’applicazione grazie ad oli antiossidanti ristrutturanti ed idratanti come:
+                         </p>
+                         <ul className="space-y-3">
+                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di nocciole di albicocca</span></li>
+                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di nocciolo di pesca</span></li>
+                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di semi di rosa canina</span></li>
+                         </ul>
+                      </div>
+                      <div className="bg-white/10 rounded-[2rem] p-8 border border-white/10">
+                          <h3 className="text-[#EAB308] font-black uppercase text-xs mb-4 tracking-widest">Decolorante con gomma di guar</h3>
+                          <p className="text-slate-300 text-xs leading-relaxed normal-case">
+                            Estratta naturalmente dai semi di guar, crea uno strato protettivo trasparente che ispessisce e protegge i capelli dalla rottura. Inoltre, dona lucentezza e facilita la pettinabilità per un risultato sano e impeccabile.
+                          </p>
+                      </div>
+                  </div>
+               </div>
+            </section>
+
+            <div className="grid grid-cols-1 gap-8">
+              ${[
+                {
+                  name: "RAGGI DI LUCE",
+                  price: "da 107€ a 117€",
+                  desc: "Utilizziamo le ultime tecniche di schiaritura per creare biondi di tendenza nel più rispetto assoluto della struttura dei capelli.Dopo un’attenta consulenza,sarai consigliata dalla nostra responsabile colore sulla scelta del metodo ideale per raggiungere il tuo biondo desiderato rispettando la struttura dei tuoi capelli."
+                },
+                {
+                  name: "COLORAZIONE CON PUNTI LUCE",
+                  price: "da 117€ a 127€",
+                  desc: "Ami avere un colore armonioso con riflessi che vanno dal caramello al biondo sabbia? Uniamo la tua colorazione con la tecnica delle “graffiature” per creare un effetto di luce sui tuoi capelli e dare quel tocco di particolarità."
+                },
+                {
+                  name: "BIONDO RAFFINATO",
+                  price: "119€/124€",
+                  desc: "Sei alla ricerca di un biondo dall’effetto uniforme ma nello stesso tempo molto naturale dove l’odiata ricrescita “marcata” diventa solo un cattivo ricordo? Questa è la tecnica più adatta a te .Dalla delicatezza del mondo del make-up per creare l’effetto “hair touch” creiamo il tuo biondo su misura rispettando la salute dei tuoi capelli."
+                },
+                {
+                  name: "Movimenti di colore",
+                  price: "139/144€",
+                  desc: "Colore dinamico dalle mille sfacettature per creare profondità ed illuminare il viso."
+                },
+                {
+                  name: "Biondo raffinato plus",
+                  price: "139/147€",
+                  desc: "Sei alla ricerca di un biondo oltre la perfezione? Biondo raffinato plus è la scelta da noi consigliata per te, che oltre ad un biondo stupendo ti permette di apportare ingredienti antiossidanti e ristrutturanti."
+                }
+              ].map(service => html`
+                <div className="bg-white rounded-[3rem] p-10 md:p-12 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
+                  <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                     <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">${service.name}</h3>
+                     <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">${service.price}</div>
+                  </div>
+                  <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">${service.desc}</p>
+                </div>
+              `)}
+            </div>
+          </div>
+        </div>
+      `;
+
       const DigitalMenu = () => {
         const [gender, setGender] = useState(null);
         const [section, setSection] = useState(null);
@@ -569,6 +659,15 @@
             <div className="h-full relative animate-fade-in">
               <${FixedBackButton} />
               <${ColorazioniList} />
+            </div>
+          `;
+        }
+        
+        if (subSection === 'schiariture-list') {
+          return html`
+            <div className="h-full relative animate-fade-in">
+              <${FixedBackButton} />
+              <${SchiaritureList} />
             </div>
           `;
         }
