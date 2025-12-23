@@ -42,7 +42,6 @@
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
@@ -56,10 +55,11 @@
       import { createRoot } from 'https://esm.sh/react-dom@19/client';
       import htm from 'https://esm.sh/htm';
 
-      const { useState, useEffect, useMemo } = React;
+      const { useState, useEffect } = React;
       const html = htm.bind(React.createElement);
 
       // --- COSTANTI E DATI ---
+      // SCHIARITURE rimosso da SECTIONS
       const SECTIONS = [
         { id: 'visione', label: 'VISIONE', icon: 'fa-eye' },
         { id: 'migliori-proposte', label: 'MIGLIORI PROPOSTE', icon: 'fa-star' },
@@ -67,7 +67,6 @@
         { id: 'trattamenti-tricologici', label: 'TRATTAMENTI TRICOLOGICI', icon: 'fa-microscope' },
         { id: 'spa', label: 'SPA', icon: 'fa-water' },
         { id: 'forma', label: 'FORMA', icon: 'fa-wand-magic-sparkles' },
-        { id: 'schiariture', label: 'SCHIARITURE', icon: 'fa-sun' },
         { id: 'stilistico', label: 'STILISTICO', icon: 'fa-scissors' }
       ];
 
@@ -342,7 +341,8 @@
               </header>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 ${SECTIONS.filter(s => {
-                    if (gender === 'uomo' && (s.id === 'colorazioni' || s.id === 'schiariture')) return false;
+                    // Filtraggio già gestito dalla rimozione di schiariture in SECTIONS
+                    if (gender === 'uomo' && (s.id === 'colorazioni')) return false;
                     return true;
                 }).map(s => html`
                   <button key=${s.id} onClick=${() => setSection(s.id)} className="bg-white p-8 rounded-[3rem] shadow-sm hover:border-[#EAB308]/30 transition-all group text-center flex flex-col items-center justify-center min-h-[220px]">
@@ -415,15 +415,12 @@
                     <div className="w-12 h-1 bg-[#EAB308] mt-6"></div>
                   </div>
                 </button>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <button onClick=${() => setSubSection('colorazioni-list')} className="bg-white rounded-[3rem] p-12 text-center shadow-sm border border-slate-100 transition-all hover:scale-[1.02] active:scale-95">
+                <div className="flex justify-center">
+                  <button onClick=${() => setSubSection('colorazioni-list')} className="w-full max-w-md bg-white rounded-[3rem] p-12 text-center shadow-sm border border-slate-100 transition-all hover:scale-[1.02] active:scale-95">
                     <i className="fa-solid fa-brush text-[#EAB308] text-3xl mb-4"></i>
                     <h2 className="text-3xl font-black text-black">COLORAZIONI</h2>
                   </button>
-                  <button onClick=${() => setSubSection('schiariture-list')} className="bg-white rounded-[3rem] p-12 text-center shadow-sm border border-slate-100 transition-all hover:scale-[1.02] active:scale-95">
-                    <i className="fa-solid fa-wand-magic-sparkles text-[#EAB308] text-3xl mb-4"></i>
-                    <h2 className="text-3xl font-black text-black">SCHIARITURE</h2>
-                  </button>
+                  <!-- SCHIARITURE RIMOSSO DA QUI -->
                 </div>
               </div>
             </div>
@@ -525,7 +522,8 @@
         `;
       };
 
-      const root = createRoot(document.getElementById('root'));
+      const rootElement = document.getElementById('root');
+      const root = createRoot(rootElement);
       root.render(html`<${App} />`);
     </script>
 </body>
