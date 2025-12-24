@@ -611,6 +611,179 @@
         </div>
       `;
 
+      // --- NUOVO COMPONENTE PER LA SEZIONE NOVITÀ (GIORNATA RELAX) ---
+      const NovitaList = () => html`
+        <div className="h-full relative animate-zoom-in max-w-5xl mx-auto pb-12 overflow-y-auto custom-scrollbar">
+          <div className="bg-white rounded-[4rem] shadow-xl overflow-hidden border border-white mb-10">
+            <!-- Header -->
+            <div className="bg-[#9F1239] p-12 text-center text-white relative uppercase overflow-hidden">
+               <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                 <i className="fa-solid fa-heart absolute top-4 left-10 text-8xl"></i>
+                 <i className="fa-solid fa-heart absolute bottom-4 right-10 text-9xl"></i>
+              </div>
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                  <div className="inline-block bg-white/20 backdrop-blur-md px-6 py-2 rounded-full">
+                    <span className="text-white text-[10px] font-black tracking-[0.3em] uppercase">Sabato 14 Febbraio</span>
+                  </div>
+                  <h1 className="text-4xl md:text-6xl font-black tracking-tighter">GIORNATA RELAX</h1>
+                  <p className="text-rose-200 text-lg md:text-xl font-black tracking-[0.2em] uppercase italic">Speciale San Valentino</p>
+                  <div className="flex items-center gap-2 text-rose-100 text-xs font-bold uppercase tracking-widest mt-2">
+                     <i className="fa-solid fa-location-dot"></i> Beautrì Parrucchieri
+                  </div>
+              </div>
+            </div>
+
+            <div className="p-10 md:p-16 space-y-12">
+               
+               <!-- Intro -->
+               <div className="text-center max-w-3xl mx-auto">
+                  <h2 className="text-2xl font-black text-rose-900 uppercase mb-6 tracking-tight">🌸 Cos’è la Giornata Relax</h2>
+                  <p className="text-slate-600 text-lg leading-relaxed font-medium italic">
+                    "La Giornata Relax è un’esperienza esclusiva creata da Beautrì per San Valentino. Un’intera giornata in cui il tempo rallenta, il rumore si spegne e tutto il salone è dedicato a un solo rituale di benessere: <span className="text-[#9F1239] font-bold">Soft Touch</span>."
+                  </p>
+                  <div className="bg-rose-50 p-6 rounded-3xl mt-8 border border-rose-100">
+                    <p className="text-rose-900 font-bold uppercase text-xs tracking-widest leading-relaxed">
+                      Nessun altro servizio. Nessuna fretta.<br/>Solo relax profondo, ascolto e cura.
+                    </p>
+                  </div>
+               </div>
+
+               <!-- Salone Trasformato -->
+               <section className="bg-white border border-slate-100 rounded-[3rem] p-10 md:p-14 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full blur-3xl opacity-50 -z-10"></div>
+                  <h3 className="text-2xl font-black text-[#9F1239] uppercase mb-2 tracking-tighter">✨ Un salone trasformato per un solo giorno</h3>
+                  <p className="text-slate-400 font-bold text-xs uppercase tracking-widest mb-8">Per garantire un’esperienza autentica e immersiva</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <ul className="space-y-4">
+                        <li className="flex items-start gap-4">
+                           <div className="w-8 h-8 rounded-full bg-rose-100 text-[#9F1239] flex items-center justify-center shrink-0 text-sm"><i className="fa-solid fa-spa"></i></div>
+                           <span className="text-slate-700 font-medium">Unico servizio disponibile: <strong>Soft Touch</strong></span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                           <div className="w-8 h-8 rounded-full bg-rose-100 text-[#9F1239] flex items-center justify-center shrink-0 text-sm"><i className="fa-solid fa-fire-flame-simple"></i></div>
+                           <div>
+                              <span className="text-slate-700 font-medium block">Allestimento completo a tema San Valentino</span>
+                              <span className="text-slate-500 text-sm">Luci soffuse, dettagli romantici, palette colori caldi</span>
+                           </div>
+                        </li>
+                        <li className="flex items-start gap-4">
+                           <div className="w-8 h-8 rounded-full bg-rose-100 text-[#9F1239] flex items-center justify-center shrink-0 text-sm"><i className="fa-solid fa-music"></i></div>
+                           <span className="text-slate-700 font-medium">Musica rilassante a tema</span>
+                        </li>
+                     </ul>
+                     <ul className="space-y-4">
+                         <li className="flex items-start gap-4">
+                           <div className="w-8 h-8 rounded-full bg-rose-100 text-[#9F1239] flex items-center justify-center shrink-0 text-sm"><i className="fa-solid fa-leaf"></i></div>
+                           <span className="text-slate-700 font-medium">Atmosfera sensoriale per distacco dallo stress</span>
+                        </li>
+                        <li className="flex items-start gap-4">
+                           <div className="w-8 h-8 rounded-full bg-rose-100 text-[#9F1239] flex items-center justify-center shrink-0 text-sm"><i className="fa-solid fa-users"></i></div>
+                           <span className="text-slate-700 font-medium">Tutto il team Beautrì dedicato esclusivamente al benessere</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div className="mt-8 bg-slate-50 p-6 rounded-2xl text-center">
+                     <p className="text-slate-500 text-sm font-bold italic">"Ogni persona viene accolta con calma, senza sovrapposizioni, senza attese."</p>
+                  </div>
+               </section>
+
+               <!-- Perche nasce & Rituale -->
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <!-- Perche -->
+                  <div className="bg-black text-white rounded-[3rem] p-10 flex flex-col justify-between">
+                     <div>
+                        <h3 className="text-2xl font-black text-[#EAB308] uppercase mb-6 tracking-tighter">🤍 Perché nasce la Giornata Relax</h3>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                          San Valentino è il giorno dell’amore. Noi abbiamo scelto di dedicarlo anche a te stessa / te stesso.
+                        </p>
+                        <ul className="space-y-3">
+                           ${['Regalare un momento di pausa vera', 'Sciogliere tensioni fisiche ed emotive', 'Ritrovare connessione con il proprio corpo', 'Vivere Beautrì in una dimensione intima'].map(t => html`
+                             <li className="flex items-center gap-3 text-sm text-slate-200">
+                               <span className="w-1.5 h-1.5 bg-[#EAB308] rounded-full"></span> ${t}
+                             </li>
+                           `)}
+                        </ul>
+                     </div>
+                  </div>
+
+                  <!-- Rituale -->
+                  <div className="bg-[#9F1239] text-white rounded-[3rem] p-10 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-2xl font-black text-white uppercase mb-6 tracking-tighter">🌿 Il rituale Soft Touch</h3>
+                        <p className="text-rose-200 font-bold text-xs uppercase tracking-widest mb-4">Protagonista Assoluto</p>
+                        <p className="text-rose-100 text-sm leading-relaxed mb-6">
+                           Durante la Giornata Relax, Soft Touch diventa un’esperienza ancora più intensa:
+                        </p>
+                        <ul className="space-y-3">
+                           ${['Manualità lente e avvolgenti', 'Attenzione totale alla persona', 'Rispetto dei tempi naturali del corpo', 'Sensazione di leggerezza e rilascio profondo'].map(t => html`
+                             <li className="flex items-center gap-3 text-sm text-white font-bold">
+                               <i className="fa-solid fa-check text-rose-300"></i> ${t}
+                             </li>
+                           `)}
+                        </ul>
+                      </div>
+                      <div className="mt-8 pt-6 border-t border-white/20">
+                         <p className="text-xs font-bold text-rose-200 italic">"Un trattamento che non è solo un servizio, ma un momento che resta."</p>
+                      </div>
+                  </div>
+               </div>
+
+               <!-- Footer info & Target -->
+               <section className="bg-rose-50 rounded-[3rem] p-10 md:p-14 border border-rose-100">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                     <div>
+                        <h3 className="text-xl font-black text-rose-900 uppercase mb-6">💝 A chi è dedicata</h3>
+                        <ul className="space-y-3">
+                           ${['A chi vuole regalarsi un momento speciale', 'A chi vive periodi di stress e ha bisogno di rallentare', 'A chi cerca un’esperienza diversa dal solito salone', 'A chi ama prendersi cura di sé in modo consapevole', 'Perfetta anche come idea regalo di San Valentino'].map(t => html`
+                             <li className="flex items-start gap-3">
+                                <i className="fa-solid fa-heart text-[#9F1239] mt-1 text-xs"></i>
+                                <span className="text-slate-700 text-sm font-medium">${t}</span>
+                             </li>
+                           `)}
+                        </ul>
+                     </div>
+                     <div>
+                        <h3 className="text-xl font-black text-rose-900 uppercase mb-6">📌 Informazioni importanti</h3>
+                        <div className="bg-white rounded-3xl p-6 shadow-sm space-y-4">
+                           <div className="flex items-center gap-4">
+                              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-[#9F1239]"><i className="fa-regular fa-calendar"></i></div>
+                              <div>
+                                 <div className="text-[10px] font-black uppercase text-slate-400">Data</div>
+                                 <div className="text-sm font-bold text-slate-800">Sabato 14 Febbraio</div>
+                              </div>
+                           </div>
+                           <div className="flex items-center gap-4">
+                              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-[#9F1239]"><i className="fa-solid fa-hourglass-half"></i></div>
+                              <div>
+                                 <div className="text-[10px] font-black uppercase text-slate-400">Disponibilità</div>
+                                 <div className="text-sm font-bold text-slate-800">Limitata</div>
+                              </div>
+                           </div>
+                           <div className="flex items-center gap-4">
+                              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-[#9F1239]"><i className="fa-solid fa-lock"></i></div>
+                              <div>
+                                 <div className="text-[10px] font-black uppercase text-slate-400">Prenotazione</div>
+                                 <div className="text-sm font-bold text-slate-800">Obbligatoria</div>
+                              </div>
+                           </div>
+                           <div className="flex items-center gap-4">
+                              <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center text-[#9F1239]"><i className="fa-solid fa-ban"></i></div>
+                              <div>
+                                 <div className="text-[10px] font-black uppercase text-slate-400">Nota</div>
+                                 <div className="text-sm font-bold text-slate-800">Nessun altro servizio attivo</div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+
+            </div>
+          </div>
+        </div>
+      `;
+
       const DigitalMenu = () => {
         const [gender, setGender] = useState(null);
         const [section, setSection] = useState(null);
@@ -1154,6 +1327,15 @@
               <div className="h-full relative animate-fade-in">
                 <${FixedBackButton} />
                 <${TricologiciList} />
+              </div>
+            `;
+        }
+
+        if (section === 'novita') {
+            return html`
+              <div className="h-full relative animate-fade-in">
+                <${FixedBackButton} />
+                <${NovitaList} />
               </div>
             `;
         }
