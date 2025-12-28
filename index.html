@@ -1618,7 +1618,7 @@
                             className=${`
                             p-8 rounded-[3rem] shadow-sm transition-all group text-center flex flex-col items-center justify-center min-h-[220px]
                             ${isNovita 
-                                ? 'bg-black border border-black hover:scale-[1.02]' 
+                                ? 'bg-white border-2 border-[#EAB308] hover:scale-[1.02] shadow-md' 
                                 : 'bg-white border border-white hover:border-[#EAB308]/30'}
                             `}
                         >
@@ -1630,15 +1630,9 @@
                             `}>
                             <i className=${`fa-solid ${s.icon}`}></i>
                             </div>
-                            <h3 className=${`
-                            text-[11px] font-black tracking-[0.1em] uppercase
-                            ${isNovita ? 'text-white' : 'text-black'}
-                            `}>
+                            <h3 className="text-[11px] font-black tracking-[0.1em] uppercase text-black">
                             ${s.label}
                             </h3>
-                            ${isNovita && html`
-                                <span className="mt-2 text-[9px] text-[#EAB308] font-bold tracking-widest animate-pulse">NEW</span>
-                            `}
                         </button>
                         `;
                     })}
