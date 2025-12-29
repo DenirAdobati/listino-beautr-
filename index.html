@@ -687,6 +687,8 @@
         }
 
         // Standard Path View
+        const toolsList = path.tools ? path.tools.split(',') : [];
+
         return html`
           <div className="h-full relative animate-zoom-in max-w-4xl mx-auto pb-12">
             <header className="flex items-center justify-center mb-10">
@@ -710,8 +712,20 @@
                     </section>
                   `}
                   <section>
-                    <h3 className="text-xs font-black text-slate-400 tracking-widest mb-4">Strumenti</h3>
-                    <p className="text-lg font-bold text-black">${path.tools}</p>
+                     <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-full bg-[#EAB308] flex items-center justify-center text-black shadow-sm">
+                           <i className="fa-solid fa-screwdriver-wrench text-xs"></i>
+                        </div>
+                        <h3 className="text-xs font-black text-slate-400 tracking-widest uppercase">Strumenti</h3>
+                     </div>
+                     <ul className="space-y-3">
+                        ${toolsList.map(t => html`
+                          <li className="flex items-start gap-3">
+                             <span className="w-1.5 h-1.5 bg-black rounded-full mt-2 shrink-0"></span>
+                             <span className="text-lg font-bold text-black leading-tight">${t.trim()}</span>
+                          </li>
+                        `)}
+                     </ul>
                   </section>
                 </div>
                 ${!isLaser && html`
