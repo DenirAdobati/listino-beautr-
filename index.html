@@ -92,12 +92,59 @@
       ];
 
       const MOCK_PATHS = [
-        { id: 'p1', name: 'Igenizzare/purificare', description: 'Percorso dedicato per capelli appesantiti, eccesso di sebo, desquamazioni, prurito e tossicità.', sessions: 'da 3 a 5 sedute', tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', price: 'Lui: 37€ | Lei: 59/63€' },
-        { id: 'p2', name: 'Lenire', description: 'Percorso dedicato a tutte quelle cuti che hanno bisogno di essere rigenerate e riportate in equilibrio.', sessions: 'da 3 a 5 sedute', tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', price: 'Lui: 67€ | Lei: 89/93€' },
-        { id: 'p3', name: 'Detossinare', description: 'Percorso dedicato per cuti asfittiche, anaerobiche e intossinate per eliminare scorie metaboliche.', sessions: 'da 5 a 7 sedute', tools: 'Vacum terapia, Alta frequenza, Cascata', price: 'Lui: 47€ | Lei: 67/71€' },
-        { id: 'p4', name: 'Nutrire', description: 'Percorso dedicato ad apportare nutrimento sia ai capelli che alla cute.', sessions: '5 sedute', tools: 'Nebulizzazione, Ossigenoterapia, Alta frequenza', price: 'Lui: 67€ | Lei: 89/93€' },
-        { id: 'p5', name: 'Riparare', description: 'Percorso dedicato a ristrutturare e riparare capelli decheratinizzati, doppie punte e danni meccanici.', sessions: '4 sedute', tools: 'Laser a fotoringiovanimento, Fototerapia, Cuffia nebulizzata', price: 'Da definire' },
-        { id: 'p6', name: 'Laser', description: 'Percorso dedicato per diradamenti psoriasi e dermatiti.', sessions: 'Vedi tabella sotto', tools: 'Laser a fobiostimolazione', price: 'Tabella' }
+        { 
+          id: 'p1', 
+          name: 'Igenizzare/purificare', 
+          description: 'Percorso dedicato per capelli appesantiti, eccesso di sebo, desquamazioni, prurito e tossicità.', 
+          sessions: 'da 3 a 5 sedute', 
+          tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', 
+          price: 'Lui: 37€ | Lei: 59/63€',
+          enhancement: 'POTENZIAMO L’EFFICACIA DI ARGILLE E PEELING NATURALI CON'
+        },
+        { 
+          id: 'p2', 
+          name: 'Lenire', 
+          description: 'Percorso dedicato a tutte quelle cuti che hanno bisogno di essere rigenerate e riportate in equilibrio.', 
+          sessions: 'da 3 a 5 sedute', 
+          tools: 'Nebulizzazione, Ultrasuoni, Corrente galvanica', 
+          price: 'Lui: 67€ | Lei: 89/93€',
+          enhancement: 'POTENZIAMO L’EFFICACIA DI ARGILLE, PEELING NATURALI, PRODOTTI LENITIVI'
+        },
+        { 
+          id: 'p3', 
+          name: 'Detossinare', 
+          description: 'Percorso dedicato per cuti asfittiche, anaerobiche e intossinate per eliminare scorie metaboliche.', 
+          sessions: 'da 5 a 7 sedute', 
+          tools: 'Vacum terapia, Alta frequenza, Cascata', 
+          price: 'Lui: 47€ | Lei: 67/71€',
+          enhancement: 'POTENZIAMO L’EFFICACIA DI OLI ESSENZIALI DETOSSINANTI'
+        },
+        { 
+          id: 'p4', 
+          name: 'Nutrire', 
+          description: 'Percorso dedicato ad apportare nutrimento sia ai capelli che alla cute.', 
+          sessions: '5 sedute', 
+          tools: 'Nebulizzazione, Ossigenoterapia, Alta frequenza', 
+          price: 'Lui: 67€ | Lei: 89/93€',
+          enhancement: 'POTENZIAMO L’EFFICACIA DI PRODOTTI E OLI ESSENZIALI NUTRITIVI E STIMOLANTI PER IL BULBO'
+        },
+        { 
+          id: 'p5', 
+          name: 'Riparare', 
+          description: 'Percorso dedicato a ristrutturare e riparare capelli decheratinizzati, doppie punte e danni meccanici.', 
+          sessions: '4 sedute', 
+          tools: 'Laser a fotoringiovanimento, Fototerapia, Cuffia nebulizzata', 
+          price: 'Da definire',
+          enhancement: 'POTENZIAMO L’EFFICACIA DI MASCHERE NATURALI, IDRATANTI, RISTRUTTURANTI E OLEAZIONI'
+        },
+        { 
+          id: 'p6', 
+          name: 'Laser', 
+          description: 'Percorso dedicato per diradamenti psoriasi e dermatiti.', 
+          sessions: 'Vedi tabella sotto', 
+          tools: 'Laser a fobiostimolazione', 
+          price: 'Tabella' 
+        }
       ];
 
       const MOCK_MAINTENANCE_PATHS = [
@@ -718,6 +765,11 @@
                         </div>
                         <h3 className="text-xs font-black text-slate-400 tracking-widest uppercase">Strumenti</h3>
                      </div>
+                     ${path.enhancement && html`
+                        <p className="text-[10px] font-black text-[#EAB308] mb-4 leading-relaxed tracking-wider">
+                           ${path.enhancement}
+                        </p>
+                     `}
                      <ul className="space-y-3">
                         ${toolsList.map(t => html`
                           <li className="flex items-start gap-3">
