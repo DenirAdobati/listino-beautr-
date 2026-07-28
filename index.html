@@ -989,76 +989,86 @@ main.overflow-y-auto {
                             </div>
                         </section>
 
-                        <!-- 2. RIGENERAZIONE DELLO STELO -->
-                        <section className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-sm border border-white hover:border-blue-200 transition-all">
-                            <div className="bg-slate-50 p-6 md:p-10 relative overflow-hidden text-center">
-                                <div className="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full blur-[40px] sm:blur-[70px] md:blur-[100px] opacity-60"></div>
-                                <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-2 relative z-10">Rigenerazione dello stelo</h2>
-                                <p className="text-blue-600 font-bold uppercase text-[10px] tracking-[0.2em] relative z-10">Purezza e ricostruzione</p>
+                        <!-- 2. OLEAZIONI -->
+                        <section className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-sm border border-white hover:border-amber-200 transition-all">
+                            <div className="p-6 md:p-10 relative overflow-hidden text-center" style=${{ background: 'linear-gradient(160deg,#fffbe6 0%,#fff5c0 100%)' }}>
+                                <h2 className="font-black text-black uppercase mb-2 relative z-10" style=${{ fontSize: '1.875rem', letterSpacing: '-0.03em', lineHeight: 1.05 }}>Oleazioni 🛟</h2>
+                                <p className="text-amber-600 font-bold uppercase text-[10px] tracking-[0.2em] relative z-10">Nutrimento e protezione</p>
                             </div>
                             <div className="p-6 md:p-12 lg:p-16">
                                 <div className="mb-8 text-slate-600 leading-relaxed">
-                                    <p className="font-bold text-black text-lg mb-4">Lo sai che il capello è una spugna?</p>
-                                    <p className="mb-4">Tutto ciò che noi mettiamo lui lo assorbe, comprese le polvere sottili dell'atmosfera. Questo porta ad avere capelli vetrosi, opachi e con viraggi di colore indesiderati. Per questo abbiamo creato “Rigenerazione dello stelo".</p>
-                                    
+                                    <p className="font-bold text-black text-lg mb-4">Lo sai che i tuoi capelli perdono lipidi ogni giorno?</p>
+                                    <p className="mb-4">Il sole, gli agenti esterni, lo styling quotidiano — phon, piastre — e i trattamenti tecnici tolgono giorno dopo giorno le riserve lipidiche naturali del capello. Il risultato? Doppie punte, capelli spezzati, struttura indebolita e perdita di lucentezza. Per questo abbiamo creato “Oleazioni".</p>
+
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-8">
-                                        <div className="bg-blue-50 p-6 rounded-3xl">
-                                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4"><i className="fa-solid fa-droplet"></i></div>
-                                            <h4 className="font-black text-blue-900 uppercase text-xs mb-2">Fase di Igienizzazione</h4>
-                                            <p className="text-sm text-blue-800">Eliminiamo metalli pesanti e tossine, preparando i capelli a ricevere il nutrimento.</p>
+                                        <div className="bg-amber-50 p-6 rounded-3xl">
+                                            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mb-4"><i className="fa-solid fa-droplet"></i></div>
+                                            <h4 className="font-black text-amber-900 uppercase text-xs mb-2">Nutrimento Profondo 💧</h4>
+                                            <p className="text-sm text-amber-800 mb-4">L'olio penetra nella fibra capillare e ripristina le riserve lipidiche perdute, rinforzando la cheratina dall'interno.</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                <span className="bg-[#1A1A1A] text-[#EAB308] px-3 py-1 rounded-full text-xs font-bold">Rinforza la cheratina</span>
+                                                <span className="bg-[#1A1A1A] text-[#EAB308] px-3 py-1 rounded-full text-xs font-bold">Ripara la fibra</span>
+                                            </div>
                                         </div>
-                                        <div className="bg-blue-50 p-6 rounded-3xl">
-                                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4"><i className="fa-solid fa-heart-pulse"></i></div>
-                                            <h4 className="font-black text-blue-900 uppercase text-xs mb-2">Fase di Nutrimento</h4>
-                                            <p className="text-sm text-blue-800">Apportiamo maschere ristrutturanti con attivi e oli essenziali per aumentare forza e resistenza.</p>
+                                        <div className="bg-amber-50 p-6 rounded-3xl">
+                                            <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mb-4"><i className="fa-solid fa-shield-halved"></i></div>
+                                            <h4 className="font-black text-amber-900 uppercase text-xs mb-2">Protezione Attiva 🛡️</h4>
+                                            <p className="text-sm text-amber-800 mb-4">Sigilla le cuticole e crea una barriera che protegge le lunghezze dalle aggressioni quotidiane (styling, agenti esterni, trattamenti tecnici).</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                <span className="bg-[#1A1A1A] text-[#EAB308] px-3 py-1 rounded-full text-xs font-bold">Barriera protettiva</span>
+                                                <span className="bg-[#1A1A1A] text-[#EAB308] px-3 py-1 rounded-full text-xs font-bold">Sigilla le cuticole</span>
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div className="mb-8">
+                                    <div className="text-center mb-6">
+                                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Il percorso</span>
+                                        <h3 className="font-black text-black uppercase mt-1" style=${{ fontSize:'clamp(1.4rem,3.5vw,2rem)', letterSpacing:'-0.02em' }}>3 sedute. Capelli protetti tutto l'anno. 🛟</h3>
+                                    </div>
+                                    ${[{n:1,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Prima seduta · Giorno 1',title:'Oleazione intensiva 🛟',text:"Nutre in profondità e crea la prima barriera protettiva.",tags:['Nutrimento profondo','Contrasta i radicali liberi','Protezione contro stress ossidativo'],timing:'Dopo 1 settimana'},{n:2,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Seconda seduta · Giorno 7',title:'Oleazione di rinforzo 💧',text:'Rinforza la struttura e consolida la protezione ottenuta.',tags:['Rinforza la struttura','Previene le rotture','Lucentezza visibile ✨','Morbidezza al tatto'],timing:'Dopo 3 settimane'},{n:3,dotBg:'#1A1A1A',dotColor:'#EAB308',bg:'#fffbe6',label:'Terza seduta · Giorno 28',title:'Oleazione di mantenimento 🌸',text:'Mantiene i risultati nel tempo: struttura in equilibrio, capelli protetti.',tags:['Mantenimento','NO doppie punte','Struttura in equilibrio','Facile gestione'],timing:null}].map(s => html`
+                                      <div key=${s.n} style=${{ display:'flex', alignItems:'flex-start', gap:'1rem' }}>
+                                        <div style=${{ display:'flex', flexDirection:'column', alignItems:'center', flexShrink:0, width:'2.5rem' }}>
+                                          <div style=${{ width:'2.5rem', height:'2.5rem', borderRadius:'50%', background:s.dotBg, color:s.dotColor, display:'flex', alignItems:'center', justifyContent:'center', fontWeight:900, fontSize:'1rem' }}>${s.n}</div>
+                                          ${s.timing && html`<div style=${{ width:'2px', minHeight:'1.5rem', background:'linear-gradient(to bottom,#EAB308,rgba(234,179,10,0.15))', marginTop:'4px', flex:1 }}></div>`}
+                                        </div>
+                                        <div style=${{ flex:1, minWidth:0, paddingBottom:'0.75rem' }}>
+                                          <div style=${{ background:s.bg, borderRadius:'1.5rem', padding:'1.25rem', border:'1px solid rgba(234,179,10,0.25)' }}>
+                                            <div style=${{ fontSize:'10px', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.15em', color:'#EAB308', marginBottom:'0.2rem' }}>${s.label}</div>
+                                            <h4 style=${{ fontWeight:900, color:'#1A1A1A', textTransform:'uppercase', fontSize:'1rem', margin:'0 0 0.75rem' }}>${s.title}</h4>
+                                            <p style=${{ color:'#6b7280', fontSize:'0.875rem', fontWeight:500, lineHeight:1.7, margin:'0 0 1rem' }}>${s.text}</p>
+                                            <div style=${{ display:'flex', flexWrap:'wrap', gap:'0.5rem' }}>
+                                              ${s.tags.map(t => html`<span key=${t} style=${{ background:'#1A1A1A', color:'#EAB308', padding:'0.25rem 0.75rem', borderRadius:'999px', fontSize:'0.75rem', fontWeight:700 }}>${t}</span>`)}
+                                            </div>
+                                          </div>
+                                          ${s.timing && html`<div style=${{ padding:'0.5rem 0' }}><div style=${{ display:'inline-flex', alignItems:'center', gap:'0.5rem', padding:'0.4rem 1rem', borderRadius:'999px', background:'rgba(234,179,10,0.1)' }}><span>⏱</span><span style=${{ fontSize:'10px', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.12em', color:'#92400e' }}>${s.timing}</span></div></div>`}
+                                        </div>
+                                      </div>`)}
                                 </div>
 
                                 <div className="bg-slate-50 rounded-[2.5rem] p-8 border border-slate-100 relative overflow-hidden">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 relative z-10">
                                         <!-- Sessions -->
-                                        <div className="bg-white border border-blue-100 p-4 rounded-2xl text-center flex flex-col justify-center shadow-sm">
+                                        <div className="bg-white border border-amber-100 p-4 rounded-2xl text-center flex flex-col justify-center shadow-sm">
                                             <div className="text-slate-400 text-[9px] font-black uppercase tracking-widest mb-2">Durata</div>
-                                            <div className="text-blue-900 font-black text-lg"><i className="fa-regular fa-clock text-blue-500 mr-2"></i>3 Sedute</div>
-                                            <div className="text-slate-400 text-[9px] mt-1 uppercase">In 3 mesi (1 al mese)</div>
+                                            <div className="text-amber-900 font-black text-lg"><i className="fa-regular fa-clock text-amber-500 mr-2"></i>3 Sedute</div>
                                         </div>
                                         <!-- Tools -->
-                                        <div className="bg-white border border-blue-100 p-4 rounded-2xl text-center flex flex-col justify-center shadow-sm">
+                                        <div className="bg-white border border-amber-100 p-4 rounded-2xl text-center flex flex-col justify-center shadow-sm">
                                             <div className="text-slate-400 text-[9px] font-black uppercase tracking-widest mb-2">Strumento</div>
-                                            <div className="text-blue-900 font-black text-lg"><i className="fa-solid fa-spa text-blue-500 mr-2"></i>Cuffia</div>
-                                            <div className="text-slate-400 text-[9px] mt-1 uppercase">Nebulizzata</div>
+                                            <div className="text-amber-900 font-black text-lg flex items-center justify-center gap-2"><span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 text-amber-600"><i className="fa-solid fa-droplet text-xs"></i></span>Olio nutriente</div>
+                                            <div className="text-slate-400 text-[9px] mt-1 uppercase">Applicazione con massaggio</div>
                                         </div>
                                         <!-- Price -->
-                                        <div className="bg-blue-600 p-4 rounded-2xl text-center flex flex-col justify-center shadow-lg transform hover:scale-105 transition-transform">
-                                            <div className="text-blue-200 text-[9px] font-black uppercase tracking-widest mb-1">Investimento</div>
-                                            <div className="text-white font-black text-2xl uppercase">389€</div>
+                                        <div className="bg-amber-500 p-4 rounded-2xl text-center flex flex-col justify-center shadow-lg transform hover:scale-105 transition-transform">
+                                            <div className="text-black/60 text-[9px] font-black uppercase tracking-widest mb-1">Investimento</div>
+                                            <div className="text-black font-black text-2xl uppercase">79€</div>
+                                            <div className="text-black/50 text-[9px] mt-1 uppercase">A seduta</div>
                                         </div>
                                     </div>
 
-                                    <div className="bg-gradient-to-r from-blue-50 to-white border border-blue-200 p-6 rounded-3xl relative overflow-hidden group shadow-sm">
-                                        <div className="absolute -right-6 -bottom-6 text-blue-100 opacity-50 rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                                            <i className="fa-solid fa-gift text-8xl"></i>
-                                        </div>
-                                        <div className="flex flex-col md:flex-row items-center gap-6 relative z-10">
-                                            <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl shadow-md shrink-0 animate-bounce">
-                                                <i className="fa-solid fa-gift"></i>
-                                            </div>
-                                            <div className="text-center md:text-left">
-                                                <h4 className="text-blue-400 font-black uppercase text-xs tracking-[0.2em] mb-2">Regalo per te</h4>
-                                                <h3 className="text-2xl font-black text-blue-900 uppercase italic mb-3">Omaggio Incluso</h3>
-                                                <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                                                    <span className="bg-white px-4 py-2 rounded-lg text-xs font-bold text-blue-800 uppercase border border-blue-100 flex items-center gap-2 shadow-sm">
-                                                        <i className="fa-solid fa-bottle-droplet text-blue-500"></i> Shampoo
-                                                    </span>
-                                                    <span className="bg-white px-4 py-2 rounded-lg text-xs font-bold text-blue-800 uppercase border border-blue-100 flex items-center gap-2 shadow-sm">
-                                                        <i className="fa-solid fa-spray-can-sparkles text-blue-500"></i> Prodotto Stelo
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p className="text-center text-blue-300 text-[10px] font-bold uppercase tracking-widest mt-6">* Ogni seduta è compresa di piega</p>
+                                    <p className="text-center text-amber-300 text-[10px] font-bold uppercase tracking-widest mt-6">* Ogni seduta è compresa di piega</p>
                                 </div>
                             </div>
                         </section>
@@ -2978,9 +2988,9 @@ main.overflow-y-auto {
               <div className="bg-white rounded-[2rem] p-6 md:p-10 mb-6 shadow-sm">
                 <div style=${{ textAlign:'center', marginBottom:'1.5rem' }}>
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Il percorso</span>
-                  <h2 className="font-black text-black uppercase mt-1" style=${{ fontSize:'clamp(1.4rem,3.5vw,2rem)', letterSpacing:'-0.02em' }}>3 sedute. Un'estate al sicuro. 🛟</h2>
+                  <h2 className="font-black text-black uppercase mt-1" style=${{ fontSize:'clamp(1.4rem,3.5vw,2rem)', letterSpacing:'-0.02em' }}>3 sedute. Capelli protetti tutto l'anno. 🛟</h2>
                 </div>
-                ${[{n:1,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Prima seduta · Giorno 1',title:'Oleazione intensiva ☀️',text:"Si sceglie l'olio migliore per le tue lunghezze. Si applica con un massaggio e si distribuisce. Penetra tramite le cuticole portando nutrimento e grassi per creare una barriera protettiva. 🛟",tags:['Nutrimento profondo','Contrasta i radicali liberi','Protezione contro stress ossidativo'],timing:'Dopo 1 settimana'},{n:2,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Seconda seduta · Giorno 7',title:'Oleazione di rinforzo 🌊',text:'La barriera ha tenuto. Ora si consolida. Rinforza la struttura, riduce lo stress meccanico e ossidativo da UVB/UVA. I capelli rispondono: più forti, più elastici, più vivi.',tags:['Rinforza la struttura','Previene le rotture','Lucentezza visibile ✨','Morbidezza al tatto'],timing:'Dopo 3 settimane'},{n:3,dotBg:'#1A1A1A',dotColor:'#EAB308',bg:'#fffbe6',label:'Terza seduta · Giorno 28',title:'Oleazione di mantenimento 🌸',text:'Mantiene la struttura equilibrata, idrata, previene le doppie punte. A settembre capelli migliori di quelli lasciati a maggio.',tags:['Mantenimento','NO doppie punte','Struttura in equilibrio','Facile gestione'],timing:null}].map(s => html`
+                ${[{n:1,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Prima seduta · Giorno 1',title:'Oleazione intensiva 🛟',text:"Nutre in profondità e crea la prima barriera protettiva.",tags:['Nutrimento profondo','Contrasta i radicali liberi','Protezione contro stress ossidativo'],timing:'Dopo 1 settimana'},{n:2,dotBg:'#EAB308',dotColor:'#1A1A1A',bg:'#F8F6F1',label:'Seconda seduta · Giorno 7',title:'Oleazione di rinforzo 💧',text:'Rinforza la struttura e consolida la protezione ottenuta.',tags:['Rinforza la struttura','Previene le rotture','Lucentezza visibile ✨','Morbidezza al tatto'],timing:'Dopo 3 settimane'},{n:3,dotBg:'#1A1A1A',dotColor:'#EAB308',bg:'#fffbe6',label:'Terza seduta · Giorno 28',title:'Oleazione di mantenimento 🌸',text:'Mantiene i risultati nel tempo: struttura in equilibrio, capelli protetti.',tags:['Mantenimento','NO doppie punte','Struttura in equilibrio','Facile gestione'],timing:null}].map(s => html`
                   <div key=${s.n} style=${{ display:'flex', alignItems:'flex-start', gap:'1rem' }}>
                     <div style=${{ display:'flex', flexDirection:'column', alignItems:'center', flexShrink:0, width:'2.5rem' }}>
                       <div style=${{ width:'2.5rem', height:'2.5rem', borderRadius:'50%', background:s.dotBg, color:s.dotColor, display:'flex', alignItems:'center', justifyContent:'center', fontWeight:900, fontSize:'1rem' }}>${s.n}</div>
