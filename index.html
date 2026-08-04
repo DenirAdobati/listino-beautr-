@@ -4591,119 +4591,165 @@ main.overflow-y-auto {
       root.render(html`<${App} />`);
     </script>
     <!-- =============================================
-  BEAUTRÌ — WIDGET WHATSAPP
-  Incolla prima di </body>
+  BEAUTRÌ — POPUP "SEI CLIENTE DI BEAUTRÌ?"
   Solo mobile (max-width: 767px)
+  Sostituisce il precedente widget WhatsApp flottante
 ============================================= -->
- 
+
 <style>
 @media screen and (max-width: 767px) {
- 
-  #bwa-wrapper {
+
+  /* Popup "Sei cliente di Beautrì?" */
+  #bcp-popup {
     position: fixed;
+    left: 16px;
+    right: 16px;
     bottom: 24px;
-    right: 20px;
     z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    padding: 18px 20px;
+    border-left: 4px solid #EAB308;
     opacity: 0;
+    transform: translateY(20px);
     pointer-events: none;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    font-family: 'Inter', sans-serif;
   }
-  #bwa-wrapper.visible {
+  #bcp-popup.visible {
     opacity: 1;
+    transform: translateY(0);
     pointer-events: all;
   }
- 
-  /* Etichetta "Hai bisogno di aiuto?" */
-  #bwa-label {
+  #bcp-text {
+    color: #1A1A1A;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0 0 14px 0;
+  }
+  #bcp-actions {
+    display: flex;
+    gap: 10px;
+  }
+  #bcp-btn-yes,
+  #bcp-btn-no {
+    flex: 1;
+    border-radius: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+  }
+  #bcp-btn-yes {
+    background: #EAB308;
+    color: #1A1A1A;
+    border: 2px solid #EAB308;
+  }
+  #bcp-btn-no {
     background: #fff;
     color: #1A1A1A;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 9px 14px;
-    border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events: none;
+    border: 2px solid #1A1A1A;
   }
-  #bwa-label.visible {
-    opacity: 1;
-    transform: translateX(0);
+
+  /* Overlay Typeform a schermo intero */
+  #bcp-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: #fff;
+    display: none;
   }
- 
-  /* Icona WhatsApp */
-  #bwa-btn {
-    width: 58px;
-    height: 58px;
+  #bcp-overlay.visible {
+    display: block;
+  }
+  #bcp-overlay iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  #bcp-overlay-close {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 10001;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    background: #1A1A1A;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 900;
     border: none;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-    animation: bwaPulse 2.5s ease-in-out infinite;
-    text-decoration: none;
-  }
-  #bwa-btn:active {
-    transform: scale(0.93);
-  }
-  #bwa-btn svg {
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-  }
-  @keyframes bwaPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.0); }
-    50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 8px rgba(37,211,102,0.15); }
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
   }
 }
- 
+
 @media screen and (min-width: 768px) {
-  #bwa-wrapper {
+  #bcp-popup,
+  #bcp-overlay {
     display: none !important;
   }
 }
 </style>
- 
-<!-- WIDGET WHATSAPP -->
-<div id="bwa-wrapper">
-  <div id="bwa-label">Hai bisogno di aiuto? 👋</div>
-  <a id="bwa-btn"
-     href="https://wa.me/393313348233?text=Ciao%2C%20ho%20visto%20il%20vostro%20menu%20e%20vorrei%20maggiori%20informazioni%20su%20come%20potreste%20aiutarmi%20col%20mio%20problema%20di%20cute%20capelli."
-     target="_blank"
-     rel="noopener noreferrer"
-     aria-label="Scrivici su WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:58px;height:58px;display:block;" alt="WhatsApp">
-  <path fill="#fff" d="M16 2C8.268 2 2 8.268 2 16c0 2.428.638 4.71 1.752 6.688L2 30l7.524-1.728A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 2c6.627 0 12 5.373 12 12S22.627 28 16 28c-2.157 0-4.18-.574-5.93-1.578l-.42-.248-4.464 1.024 1.054-4.352-.27-.438A11.94 11.94 0 014 16C4 9.373 9.373 4 16 4zm-1.906 5.594c-.234 0-.617.088-.94.438-.322.35-1.228 1.2-1.228 2.926s1.256 3.394 1.432 3.628c.176.234 2.472 3.772 5.984 5.142.836.36 1.488.574 1.996.736.838.27 1.602.232 2.206.14.672-.1 2.072-.848 2.364-1.664.292-.816.292-1.516.204-1.664-.088-.148-.322-.236-.672-.412-.35-.176-2.072-1.022-2.394-1.138-.322-.116-.556-.176-.788.176-.234.352-.908 1.138-1.114 1.374-.204.234-.41.262-.76.088-.35-.176-1.478-.546-2.816-1.74-1.04-.93-1.742-2.08-1.946-2.43-.204-.35-.022-.54.154-.714.158-.158.35-.41.526-.614.176-.204.234-.35.352-.584.116-.234.058-.44-.028-.614-.088-.176-.788-1.898-1.08-2.598-.284-.68-.57-.586-.788-.598-.204-.01-.438-.012-.672-.012z"/>
-</svg>
-  </a>
+
+<!-- POPUP "SEI CLIENTE DI BEAUTRÌ?" -->
+<div id="bcp-popup" role="dialog" aria-label="Sei cliente di Beautrì?">
+  <p id="bcp-text">Sei cliente di Beautrì?</p>
+  <div id="bcp-actions">
+    <button id="bcp-btn-yes" type="button">Sì</button>
+    <button id="bcp-btn-no" type="button">No</button>
+  </div>
 </div>
- 
+
+<!-- OVERLAY TYPEFORM -->
+<div id="bcp-overlay">
+  <button id="bcp-overlay-close" type="button" aria-label="Chiudi">&times;</button>
+  <iframe id="bcp-iframe" title="Typeform" allow="camera; microphone; autoplay; encrypted-media;"></iframe>
+</div>
+
 <script>
 (function() {
-  var wrapper = document.getElementById('bwa-wrapper');
-  var label = document.getElementById('bwa-label');
- 
-  // Dopo 5 secondi: compare tutto
+  // Solo mobile: se lo schermo è da tablet/desktop in su, non fare nulla
+  if (window.matchMedia('(min-width: 768px)').matches) return;
+
+  var STORAGE_KEY = 'bcpPopupShown';
+  if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+  var popup = document.getElementById('bcp-popup');
+  var overlay = document.getElementById('bcp-overlay');
+  var iframe = document.getElementById('bcp-iframe');
+  var btnYes = document.getElementById('bcp-btn-yes');
+  var btnNo = document.getElementById('bcp-btn-no');
+  var btnClose = document.getElementById('bcp-overlay-close');
+
   setTimeout(function() {
-    wrapper.classList.add('visible');
-    label.classList.add('visible');
- 
-    // Dopo altri 3 secondi: sparisce solo la scritta
-    setTimeout(function() {
-      label.classList.remove('visible');
-    }, 3000);
- 
+    popup.classList.add('visible');
+    sessionStorage.setItem(STORAGE_KEY, '1');
   }, 5000);
+
+  btnYes.addEventListener('click', function() {
+    popup.classList.remove('visible');
+  });
+
+  btnNo.addEventListener('click', function() {
+    popup.classList.remove('visible');
+    if (!iframe.src) {
+      iframe.src = 'https://form.typeform.com/to/vG1WTera';
+    }
+    overlay.classList.add('visible');
+  });
+
+  btnClose.addEventListener('click', function() {
+    overlay.classList.remove('visible');
+  });
 })();
 </script>
 </body>
