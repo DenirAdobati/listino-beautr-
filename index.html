@@ -2022,6 +2022,33 @@ main.overflow-y-auto {
               </div>
             </section>
 
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
+              <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">COLORAZIONE CON PUNTI LUCE</h3>
+                <div className="text-2xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">da 117€ a 127€</div>
+              </div>
+              <p className="text-slate-600 text-lg leading-relaxed normal-case max-w-4xl">Ami avere un colore armonioso con riflessi che vanno dal caramello al biondo sabbia? Uniamo la tua colorazione con la tecnica delle "graffiature" per creare un effetto di luce sui tuoi capelli e dare quel tocco di particolarità.</p>
+              <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
+                <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
+                  <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
+                  <div className="flex flex-col md:flex-row-reverse items-center gap-4">
+                    <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
+                      <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con l'aggiunta di soli <span className="text-[#EAB308] text-2xl">37€</span> alle tue schiariture ti garantiamo una struttura perfetta del tuo capello!</p>
+                      <ul className="text-slate-700 text-sm space-y-1 mb-2">
+                        <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli più brillanti</span></li>
+                        <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli al tatto setosi</span></li>
+                        <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Schiariture più durature nel tempo</span></li>
+                      </ul>
+                      <p className="text-base font-semibold italic text-[#EAB308]">Tutto questo grazie a oli vegetali/burri naturali, proteine del grano e cheratina.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- COLORAZIONE ZEN - THEME ZEN (BLACK/GOLD) -->
             <section className="bg-[#1A1A1A] text-white rounded-[2rem] sm:rounded-[3rem] md:rounded-[4rem] p-6 md:p-12 lg:p-16 md:p-20 relative overflow-hidden border border-white/5">
                <div className="absolute top-0 right-0 w-96 h-96 bg-[#EAB308] rounded-full blur-[60px] sm:blur-[100px] md:blur-[150px] opacity-10 -z-10"></div>
@@ -2098,175 +2125,92 @@ main.overflow-y-auto {
               <div className="w-12 h-1 bg-[#EAB308] mx-auto mt-6"></div>
             </div>
             <div className="p-6 md:p-10 lg:p-16 text-center normal-case">
-              <p className="text-slate-600 text-lg leading-relaxed font-medium italic max-w-3xl mx-auto">
-                Benvenuta nel mondo delle schiariture di Beautrì Parrucchieri,
-                dove bellezza e salute dei capelli vanno di pari passo.
-                Tutti abbiamo desiderato capelli più chiari almeno una volta,
-                ma a che prezzo? Decolorazioni aggressive e prodotti scadenti
-                compromettono irrimediabilmente la struttura del capello.
-                Noi diciamo NO a biondi estremi e trattamenti invasivi che
-                distruggono i capelli. La nostra filosofia si basa sulla riparazione
-                e sulla protezione, utilizzando decoloranti delicati, formulazioni
-                innovative e strumenti non aggressivi, come stagnoli e fonti di calore
-                controllate. Garantiamo schiariture che rispettano i capelli, per
-                risultati biondi, sani e lucenti.
-              </p>
+              <div className="space-y-4 text-slate-600 text-lg leading-relaxed font-medium italic max-w-3xl mx-auto">
+                <p>Le nostre <strong>Schiariture Sicure</strong> sono percorsi di schiaritura ad alta protezione, ideati per trasformare il tuo colore <strong>senza mai compromettere l'integrità del capello</strong>. Lavoriamo attraverso un <strong>protocollo rigoroso</strong> che parte da una valutazione preventiva dello stato della fibra e lavora utilizzando decoloranti di ultima generazione arricchiti con molecole protettive e agenti chelanti per neutralizzare i metalli ed evitare la rottura.</p>
+                <p>Ogni servizio si completa con l'applicazione del nostro <strong>Sigillo di Garanzia</strong>, un trattamento di ricostruzione profonda e sigillatura cuticolare per blindare la salute del capello e la lucentezza del riflesso, e si estende a casa con <strong>consigli e prodotti specifici di mantenimento</strong> per proteggere il tuo investimento nel tempo.</p>
+              </div>
+              <!-- TODO: testo condizioni da rifinire con Denir -->
+              <div className="mt-6 inline-flex items-center gap-3 bg-[#DC2626] border-2 border-red-800 rounded-2xl px-6 py-4 shadow-lg max-w-2xl mx-auto">
+                <i className="fa-solid fa-triangle-exclamation text-white text-xl shrink-0"></i>
+                <p className="text-white text-base font-bold not-italic text-left">Se il tuo capello non è nelle condizioni idonee, il servizio "Schiariture Sicure" non verrà svolto.</p>
+              </div>
             </div>
           </div>
 
           <div className="space-y-12">
-            <section className="bg-black text-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 lg:p-16 shadow-sm border border-black relative overflow-hidden">
-               <div className="relative z-10">
-                  <h2 className="text-3xl font-black text-[#EAB308] tracking-tighter uppercase mb-8">I nostri decoloranti</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                      <div>
-                         <p className="text-slate-300 text-sm leading-relaxed mb-6 normal-case">
-                           Protegge la fibra capillare durante l’applicazione grazie ad oli antiossidanti ristrutturanti ed idratanti come:
-                         </p>
-                         <ul className="space-y-3">
-                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di nocciole di albicocca</span></li>
-                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di nocciolo di peach</span></li>
-                            <li className="flex items-center gap-3"><span className="w-2 h-2 bg-[#EAB308] rounded-full"></span><span className="text-sm font-bold uppercase tracking-wider">Olio di semi di rosa canina</span></li>
-                         </ul>
-                      </div>
-                      <div className="bg-white/10 rounded-[2rem] p-8 border border-white/10">
-                          <h3 className="text-[#EAB308] font-black uppercase text-xs mb-4 tracking-widest">Decolorante con gomma di guar</h3>
-                          <p className="text-slate-300 text-xs leading-relaxed normal-case">
-                            Estratta naturalmente dai semi di guar, crea uno strato protettivo trasparente che ispessisce e protegge i capelli dalla rottura. Inoltre, dona lucentezza e facilita la pettinabilità per un risultato sano e impeccabile.
-                          </p>
-                      </div>
-                  </div>
-               </div>
-            </section>
-
             <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
               <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
-                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">RAGGI DI LUCE</h3>
-                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">da 107€ a 117€</div>
+                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">LUCE ESSENZIALE</h3>
+                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">109/119€</div>
                 </div>
-                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">Utilizziamo le ultime tecniche di schiaritura per creare biondi di tendenza nel più rispetto assoluto della struttura dei capelli.Dopo un’attenta consulenza,sarai consigliata dalla nostra responsabile colore sulla scelta del metodo ideale per raggiungere il tuo biondo desiderato rispettando la struttura dei tuoi capelli.</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl mb-6">Schiaritura classica o tradizionale.</p>
+                <div className="border-l-4 border-green-600 pl-4 sm:pl-6">
+                  <div className="inline-block bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-2">Beneficio</div>
+                  <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case max-w-4xl">L'effetto luce classico che illumina la chioma nel rispetto della fibra capillare.</p>
+                </div>
                 <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
-                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
-                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
-                    <div className="flex flex-col md:flex-row items-center gap-4">
-                      <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
-                        <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con l’aggiunta di soli <span className="text-[#EAB308] text-2xl">37€</span> alle tue schiariture ti garantiamo una struttura perfetta del tuo capello!</p>
-                        <ul className="text-slate-700 text-sm space-y-1 mb-2">
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli più brillanti</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli al tatto setosi</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Schiariture più durature nel tempo</span></li>
-                        </ul>
-                        <p className="text-base font-semibold italic text-[#EAB308]">Tutto questo grazie a oli vegetali/burri naturali, proteine del grano e cheratina.</p>
-                      </div>
-                    </div>
+                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-6 md:px-8 md:py-8 shadow-lg relative">
+                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase z-10">OMAGGIO</span>
+                    <p className="text-black text-lg font-black uppercase tracking-tight">Sigillo di garanzia</p>
+                    <p className="text-[#EAB308] text-sm font-bold uppercase tracking-widest mt-1">dal valore di 27€</p>
+                    <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case mt-3">Ogni nostra schiaritura include un trattamento protettivo integrato. Ti garantiamo il massimo della schiaritura nel rispetto totale della fibra capillare.</p>
                   </div>
                 </div>
               </div>
               <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
-                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">COLORAZIONE CON PUNTI LUCE</h3>
-                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">da 117€ a 127€</div>
+                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">LUCE RIGENERANTE</h3>
+                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">139/149€</div>
                 </div>
-                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">Ami avere un colore armonioso con riflessi che vanno dal caramello al biondo sabbia? Uniamo la tua colorazione con la tecnica delle "graffiature" per creare un effetto di luce sui tuoi capelli e dare quel tocco di particolarità.</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl mb-6">Schiaritura frutto delle ultime tecniche (Balayage, Degradè, sfumate a mano libera) con trattamento protettivo e rinforzante integrato in omaggio.</p>
+                <div className="border-l-4 border-green-600 pl-4 sm:pl-6">
+                  <div className="inline-block bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-2">Beneficio</div>
+                  <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case max-w-4xl">Non solo schiaritura, ma una vera e propria ricarica di idratazione e forza per i capelli.</p>
+                </div>
                 <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
-                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
-                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
-                    <div className="flex flex-col md:flex-row-reverse items-center gap-4">
-                      <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
-                        <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con l'aggiunta di soli <span className="text-[#EAB308] text-2xl">37€</span> alle tue schiariture ti garantiamo una struttura perfetta del tuo capello!</p>
-                        <ul className="text-slate-700 text-sm space-y-1 mb-2">
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli più brillanti</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli al tatto setosi</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Schiariture più durature nel tempo</span></li>
-                        </ul>
-                        <p className="text-base font-semibold italic text-[#EAB308]">Tutto questo grazie a oli vegetali/burri naturali, proteine del grano e cheratina.</p>
-                      </div>
-                    </div>
+                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-6 md:px-8 md:py-8 shadow-lg relative">
+                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase z-10">OMAGGIO</span>
+                    <p className="text-black text-lg font-black uppercase tracking-tight">Sigillo di garanzia</p>
+                    <p className="text-[#EAB308] text-sm font-bold uppercase tracking-widest mt-1">dal valore di 27€</p>
+                    <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case mt-3">Ogni nostra schiaritura include un trattamento protettivo integrato. Ti garantiamo il massimo della schiaritura nel rispetto totale della fibra capillare.</p>
                   </div>
                 </div>
               </div>
               <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
-                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">BIONDO RAFFINATO</h3>
-                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">119€/124€</div>
+                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">LUCE SUBLIME</h3>
+                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">169/179€</div>
                 </div>
-                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">Sei alla ricerca di un biondo dall’effetto uniforme ma nello stesso tempo molto naturale dove l’odiata ricrescita “marcata” diventa solo un cattivo ricordo? Questa è la tecnica più adatta a te .Dalla delicatezza del mondo del make-up per creare l’effetto “hair touch” creiamo il tuo biondo su misura rispettando la salute dei tuoi capelli.</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl mb-6">Schiaritura avanzata ad alta precisione con tecnica Baby Light (su misura, sfumature complesse).</p>
+                <div className="border-l-4 border-green-600 pl-4 sm:pl-6">
+                  <div className="inline-block bg-green-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-2">Beneficio</div>
+                  <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case max-w-4xl">L'esperienza di bellezza definitiva per massima schiaritura e zero compromessi sulla salute del capello.</p>
+                </div>
                 <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
-                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
-                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
-                    <div className="flex flex-col md:flex-row items-center gap-4">
-                      <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
-                        <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con l’aggiunta di soli <span className="text-[#EAB308] text-2xl">37€</span> alle tue schiariture ti garantiamo una struttura perfetta del tuo capello!</p>
-                        <ul className="text-slate-700 text-sm space-y-1 mb-2">
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli più brillanti</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli al tatto setosi</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Schiariture più durature nel tempo</span></li>
-                        </ul>
-                        <p className="text-base font-semibold italic text-[#EAB308]">Tutto questo grazie a oli vegetali/burri naturali, proteine del grano e cheratina.</p>
-                      </div>
-                    </div>
+                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-6 md:px-8 md:py-8 shadow-lg relative">
+                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase z-10">OMAGGIO</span>
+                    <p className="text-black text-lg font-black uppercase tracking-tight">Sigillo di garanzia</p>
+                    <p className="text-[#EAB308] text-sm font-bold uppercase tracking-widest mt-1">dal valore di 27€</p>
+                    <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case mt-3">Ogni nostra schiaritura include un trattamento protettivo integrato. Ti garantiamo il massimo della schiaritura nel rispetto totale della fibra capillare.</p>
                   </div>
                 </div>
               </div>
               <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
-                <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
-                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">Movimenti di colore</h3>
-                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">139/144€</div>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <i className="fa-solid fa-shield-halved text-[#EAB308] text-2xl"></i>
+                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors text-center">GARANZIA</h3>
                 </div>
-                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">Colore dinamico dalle mille sfacettature per creare profondità ed illuminare il viso.</p>
-                <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
-                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
-                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
-                    <div className="flex flex-col md:flex-row-reverse items-center gap-4">
-                      <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
-                        <img src="Conditioner.png" alt="Conditioner Beautrì" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con soli <span className="text-[#EAB308] text-2xl">29€</span> il tuo colore durerà di più!</p>
-                        <p className="text-slate-600 text-sm leading-relaxed mb-2">Grazie a un mix di olii essenziali, aloe e emollienti naturali garantiamo al capello:</p>
-                        <ul className="text-slate-700 text-sm space-y-1 mb-2">
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Lucidità + elasticità</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Antistaticità (i capelli non volano)</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Facilità nel districare i capelli</span></li>
-                        </ul>
-                        <p className="text-base font-semibold italic text-[#EAB308]">Con il risultato di un colore più duraturo e lucido nel tempo.</p>
-                      </div>
+                <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
+                  <div className="flex flex-col md:flex-row items-center gap-4">
+                    <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
+                      <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 lg:p-16 shadow-sm border border-white hover:border-[#EAB308]/30 transition-all group">
-                <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
-                  <h3 className="text-2xl font-black text-black uppercase tracking-tighter group-hover:text-[#EAB308] transition-colors">Biondo raffinato plus</h3>
-                  <div className="text-xl font-black text-[#EAB308] tracking-widest whitespace-nowrap">139/147€</div>
-                </div>
-                <p className="text-slate-600 text-sm font-medium leading-relaxed normal-case max-w-4xl">Sei alla ricerca di un biondo oltre la perfezione? Biondo raffinato plus è la scelta da noi consigliata per te, che oltre ad un biondo stupendo ti permette di apportare ingredienti antiossidanti e ristrutturanti.</p>
-                <div className="mt-10 pt-8 border-t-2 border-dashed border-[#EAB308]/30">
-                  <div className="bg-white border-2 border-[#EAB308] rounded-[2rem] px-6 py-4 md:px-8 md:py-5 shadow-lg relative">
-                    <span className="absolute -top-3 right-6 bg-[#E63946] text-white text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">NOVITÀ</span>
-                    <div className="flex flex-col md:flex-row items-center gap-4">
-                      <div className="w-full md:w-56 h-56 shrink-0 flex items-center justify-center">
-                        <img src="Maschera.png" alt="Maschera Beautrì" className="w-full h-full object-contain" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Con l'aggiunta di soli <span className="text-[#EAB308] text-2xl">37€</span> alle tue schiariture ti garantiamo una struttura perfetta del tuo capello!</p>
-                        <ul className="text-slate-700 text-sm space-y-1 mb-2">
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli più brillanti</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Capelli al tatto setosi</span></li>
-                          <li className="flex items-start gap-2 font-semibold leading-normal"><span>✅</span><span>Schiariture più durature nel tempo</span></li>
-                        </ul>
-                        <p className="text-base font-semibold italic text-[#EAB308]">Tutto questo grazie a oli vegetali/burri naturali, proteine del grano e cheratina.</p>
-                      </div>
+                    <div className="flex-1">
+                      <!-- TODO: copy upsell da rifinire con Denir -->
+                      <p className="text-xl font-black text-[#1A1A1A] leading-snug mb-2">Proteggi più a lungo le tue schiariture con l'aggiunta di solo <span className="text-[#EAB308] text-2xl">37€</span> grazie alla maschera...</p>
+                      <p className="text-slate-700 text-sm font-semibold leading-relaxed normal-case mb-2">Proteggi il tuo investimento e garantisci la salute dei capelli:</p>
+                      <p className="text-slate-600 text-sm leading-relaxed normal-case">Per proteggere il tuo investimento e non sprecare il lavoro fatto in salone, la routine a casa è fondamentale. Per mantenere e prolungare nel tempo i risultati del trattamento ricevuto in omaggio, e in vista del tuo prossimo appuntamento di schiaritura, ti consigliamo:</p>
                     </div>
                   </div>
                 </div>
