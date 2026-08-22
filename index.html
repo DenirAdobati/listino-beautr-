@@ -3121,16 +3121,16 @@ main.overflow-y-auto {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
             ${gender !== 'uomo' && html`
-              <button onClick=${() => { setSurveyStep(0); setSurveyDone(false); setSurveyNo(false); setView('oleazioni'); }}
+              <button onClick=${() => window.open('reset-autunnale.html', '_self')}
                 className="flex-1 rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border shadow-lg transition-all hover:scale-[1.01] active:scale-95 text-left"
-                style=${{ background:'linear-gradient(160deg,#fffbe6 0%,#fff5c0 100%)', borderColor:'rgba(234,179,10,0.3)' }}>
+                style=${{ background:'linear-gradient(160deg,#FBEEE0 0%,#F3D9BC 100%)', borderColor:'rgba(194,65,12,0.3)' }}>
                 <div className="p-6 md:p-8 relative overflow-hidden">
-                  <div style=${{ position:'absolute', top:'0.75rem', right:'0.75rem', fontSize:'3rem', opacity:0.15 }}>🕶️</div>
-                  <div style=${{ fontSize:'3rem', marginBottom:'0.75rem' }}>🛟</div>
-                  <div style=${{ fontSize:'10px', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.18em', color:'#EAB308', marginBottom:'0.4rem' }}>Pacchetto Estate</div>
-                  <h2 className="font-black text-black uppercase tracking-tighter" style=${{ fontSize:'clamp(1.2rem,3vw,1.7rem)', lineHeight:1.1, marginBottom:'0.5rem' }}>Novità per le tue<br/>lunghezze questa estate</h2>
-                  <p className="text-slate-500 font-medium text-sm mt-2">Il salvagente dei tuoi capelli per quest'estate.</p>
-                  <div style=${{ marginTop:'1.25rem', display:'inline-flex', alignItems:'center', gap:'0.5rem', background:'#1A1A1A', color:'#EAB308', padding:'0.5rem 1.25rem', borderRadius:'999px', fontSize:'0.8rem', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.08em' }}>Scopri →</div>
+                  <div style=${{ position:'absolute', top:'0.75rem', left:'0.75rem', background:'#E63946', color:'#fff', fontSize:'10px', fontWeight:900, letterSpacing:'0.1em', padding:'0.25rem 0.75rem', borderRadius:'999px', textTransform:'uppercase' }}>Novità</div>
+                  <div style=${{ position:'absolute', top:'0.75rem', right:'0.75rem', fontSize:'3rem', opacity:0.15 }}>☕</div>
+                  <div style=${{ fontSize:'3rem', marginBottom:'0.75rem' }}>🍂</div>
+                  <h2 className="font-black text-black uppercase tracking-tighter" style=${{ fontSize:'clamp(1.2rem,3vw,1.7rem)', lineHeight:1.1, marginBottom:'0.4rem' }}>Reset Autunnale</h2>
+                  <p style=${{ fontWeight:700, letterSpacing:'0.02em', color:'#C2410C', fontSize:'0.9rem', margin:0 }}>Pulizia profonda e rigenerazione autunnale</p>
+                  <div style=${{ marginTop:'1.25rem', display:'inline-flex', alignItems:'center', gap:'0.5rem', background:'#1A1A1A', color:'#fff', padding:'0.5rem 1.25rem', borderRadius:'999px', fontSize:'0.8rem', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.08em' }}>Scopri →</div>
                 </div>
               </button>
               `}
@@ -3147,23 +3147,6 @@ main.overflow-y-auto {
                 </div>
               </button>
            </div>
-            <button
-              onClick=${() => window.open('summer-box.html', '_self')}
-              style=${{ marginTop:'1.5rem', borderRadius:'2rem', overflow:'hidden', position:'relative', background:'linear-gradient(135deg, #0e7bb0 0%, #1a9fd4 30%, #4ec4e0 60%, #87CEEB 100%)', padding:'2.5rem 1.5rem', boxShadow:'0 8px 32px rgba(14,123,176,0.25)', width:'100%', border:'none', cursor:'pointer', textAlign:'center' }}>
-              <div style=${{ textAlign:'center' }}>
-                <div style=${{ display:'inline-flex', alignItems:'center', gap:'0.5rem', background:'rgba(220,38,38,0.15)', border:'1.5px solid rgba(220,38,38,0.5)', borderRadius:'999px', padding:'0.35rem 1rem', marginBottom:'1.25rem' }}>
-                  <span style=${{ width:'8px', height:'8px', borderRadius:'50%', background:'#DC2626', display:'inline-block', flexShrink:0 }}></span>
-                  <span style=${{ color:'#fff', fontSize:'0.6rem', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.18em' }}>Disponibile ancora per poco</span>
-                </div>
-                <div style=${{ fontSize:'clamp(2.4rem, 7vw, 3.4rem)', fontWeight:900, color:'white', letterSpacing:'-0.03em', lineHeight:1.05, marginBottom:'0.2rem', textShadow:'0 2px 12px rgba(0,0,0,0.18)' }}>BEAUTRÍ</div>
-                <div style=${{ fontSize:'clamp(2.1rem, 6.5vw, 3.1rem)', fontWeight:900, color:'#EAB30A', letterSpacing:'-0.02em', lineHeight:1.05, marginBottom:'1.75rem', fontStyle:'italic', textShadow:'0 2px 16px rgba(0,0,0,0.2)' }}>Summer Box</div>
-                <div style=${{ display:'inline-flex', alignItems:'center', gap:'0.7rem', background:'#EAB30A', borderRadius:'999px', padding:'0.85rem 2.2rem' }}>
-                  <span style=${{ fontSize:'1.1rem' }}>🔥</span>
-                  <span style=${{ color:'#1A1A1A', fontSize:'0.85rem', fontWeight:900, textTransform:'uppercase', letterSpacing:'0.15em' }}>Scopri la Summer Box →</span>
-                  <span style=${{ fontSize:'1.1rem' }}>🔥</span>
-                </div>
-              </div>
-           </button>
           </div>
         `;
       };
