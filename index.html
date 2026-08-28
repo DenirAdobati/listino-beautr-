@@ -2704,7 +2704,8 @@ main.overflow-y-auto {
           if (isSpinning) return;
           setIsSpinning(true);
           setPrize(null);
-          const prizeIndex = Math.floor(Math.random() * prizes.length);
+          const eligibleIndexes = prizes.reduce((acc, p, i) => { if (p.name !== 'Cremino') acc.push(i); return acc; }, []);
+          const prizeIndex = eligibleIndexes[Math.floor(Math.random() * eligibleIndexes.length)];
           const selectedPrize = prizes[prizeIndex];
           const segmentSize = 360 / prizes.length;
           const targetAngle = 360 - (prizeIndex * segmentSize + segmentSize / 2);
